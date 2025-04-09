@@ -1,0 +1,127 @@
+.mainStudent{
+    margin-left: 230px;
+   
+}
+.studentContainer{
+  margin: 0 auto;
+}
+.Cancelbtn{
+  padding: 12px 13px;
+  margin-bottom: 8px;
+  margin-right: 10px;
+
+}
+.checkboxText{
+  margin-left: 10px;
+}
+.Candidate{
+    margin-top: 1rem;
+} 
+.addmore{
+  padding: 10px 10px;
+  margin-bottom: 8px;
+}
+.cancel{
+  margin-bottom: 50px;
+  margin-right:40px ;
+}
+.sidebar-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 16rem;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inner Container */
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+}
+
+/* Header Section */
+.sidebar-header {
+  text-align: center;
+  line-height: 35px;
+  margin-bottom: 1rem; /* Add some space below header */
+}
+
+/* Navigation */
+.sidebar-nav {
+  flex-grow: 1;
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Space between items */
+}
+
+.sidebar-item:last-child {
+  margin-top: auto; /* Push logout to the bottom */
+  margin-bottom: 1rem; /* Add some space at the bottom */
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  font-weight: 500;
+}
+
+.sidebar-link:hover {
+  background: linear-gradient(to left, 
+      #FF6B8B 0%, #D95AA5 20%, 
+      #B66DC8 40%, #8A75E6 60%, 
+      #4E88FF 100%
+  ); 
+  color: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.sidebar-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.logoutSiderbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: red;
+  font-size: 18px;
+  padding: 0.75rem 1rem;
+}
+
+.logoutSiderbar:hover {
+  /* transform: scale(1.1); */
+  
+}
+.dashboard{
+  margin-bottom: 8px;
+}
+.resumeanalysis{
+  padding: 10px;
+}

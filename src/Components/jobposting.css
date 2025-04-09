@@ -1,0 +1,198 @@
+.all{
+  height: 40px;
+  width: 130px;
+}
+.publish{
+  height: 40px;
+  width: 130px;
+}
+.public{
+  padding:5px 8px ;
+}
+/* JobDetails css */
+/* Spacing Utility Classes */
+.m-7-custom {
+  margin: 1.75rem; /* Equivalent to Tailwind m-7 */
+}
+
+.p-6-custom {
+  padding: 1.5rem; /* Equivalent to Tailwind p-6 */
+}
+
+.py-3-custom {
+  padding-top: 0.75rem; /* Equivalent to Tailwind py-3 */
+  padding-bottom: 0.75rem;
+}
+
+.px-5-custom {
+  padding-left: 1.25rem; /* Equivalent to Tailwind px-5 */
+  padding-right: 1.25rem;
+}
+
+/* Existing CSS */
+.all {
+height: 40px;
+width: 130px;
+}
+.publish {
+height: 40px;
+width: 130px;
+}
+
+/* New and modified styles for better responsive behavior */
+/* Main layout adjustments */
+.dash {
+/* width: 100%; */
+transition: all 0.3s ease;
+padding: 1.5rem;
+}
+
+/* Maintain consistent spacing with both collapsed and expanded sidebar */
+.dash1 {
+margin-bottom: 1.5rem;
+}
+
+.paddingtop{
+padding-top: 10px;
+}
+
+.paddingleft{
+padding-left: 10px;
+}
+
+/* Improved job card styling */
+.data1 {
+width: 30%;
+min-width: 250px;
+height: 180px;
+display: flex;
+border-radius: 10px;
+transition: all 0.3s ease;
+padding: 1.25rem;
+}
+
+/* Better responsive layout for job cards container */
+.jobp {
+margin-top: 30px;
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+}
+
+/* Job number indicator styling */
+.jobno {
+padding: 8px 15px;
+border-radius: 9999px;
+font-weight: 500;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Search improvements */
+.search2 {
+font-size: 1rem;
+}
+
+.jobsearchicon{
+margin-left: 5px;
+}
+
+/* Recent job postings section */
+.recent {
+margin-top: 1.5rem;
+transition: all 0.3s ease;
+}
+
+.recent1 {
+padding: 1.5rem;
+border-radius: 1rem;
+
+}
+
+/* Individual job posting cards */
+.frontend {
+padding: 1.25rem;
+margin-bottom: 1rem;
+display: flex;
+justify-content: space-between;
+/* align-items: center; */
+flex-wrap: wrap;
+gap: 1rem;
+transition: all 0.3s ease;
+}
+
+/* Job details */
+.frontend .flex-col {
+gap: 0.5rem;
+}
+
+/* Action buttons */
+.frontend .flex.gap-5 {
+display: flex;
+align-items: center;
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 1280px) {
+.data1 {
+  width: calc(50% - 0.5rem);
+}
+
+.frontend {
+  padding: 1rem;
+}
+}
+
+@media (max-width: 768px) {
+.data1 {
+  width: 100%;
+}
+
+.frontend {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.frontend .flex.gap-5 {
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: flex-end;
+}
+}
+
+/* Create form improvements */
+.formcreatejob {
+margin-top: 2rem;
+overflow-y: auto;
+max-height: calc(100vh - 200px);
+}
+
+/* Form input styles */
+.shift-placeholder::placeholder {
+transition: all 0.2s ease;
+}
+
+.shift-placeholder:focus::placeholder {
+transform: translateY(-5px);
+opacity: 0.7;
+font-size: 0.85em;
+}
+
+.writeText {
+font-size: 1rem;
+}
+
+/* Improved button styles */
+.savejobcreate button {
+transition: all 0.2s ease;
+}
+
+.savejobcreate button:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.savejobcreate{
+/* margin-bottom: 0px; */
+margin-top: 30px;
+}

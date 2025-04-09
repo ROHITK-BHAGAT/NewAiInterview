@@ -1,0 +1,1160 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:wght@100&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    /* border: 1px solid magenta; */
+}
+
+.nav .btndemo{
+    background-color: #2194FE;
+    color: white;
+    border-radius: 4px;
+    padding: 20px 30px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+    .nav{
+        
+        margin: 10px 20px;
+    }
+    .nav img{
+      width: 150px;
+      height: 40px;
+  }
+  .nav .btndemo{
+    /* background-color: #2194FE; */
+    /* color: white; */
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+}
+
+/* home */
+
+
+.hero-container {
+  background-image:url(../background.png);
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh;  */
+    color: #003061;
+    /* margin-top: 100px; */
+    margin-bottom: 250px;
+    margin-left: 60px;
+    text-align: left;
+    /* width: 724px; */
+  
+  }
+  .divafternav{
+    margin-top: 150px;
+  }
+  .popup{
+    margin-top: 120px;
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.logindivpadding{
+  padding-bottom:20px;
+}
+  
+  
+  
+  .hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #003061;
+    line-height: 1.3;
+    
+  }
+  
+  
+ 
+    .highlight {
+      background: linear-gradient(to right, 
+        #ED4876 0%, #ED4876 14%, /* M */
+        #D74D88 14%, #D74D88 28%, /* A & I */
+        #C25298 28%, #C25298 42%, /* T, R, & I */
+        #9D5CB7 42%, #9D5CB7 57%, /* A & I */
+        #8262CD 57%, #8262CD 60%, /* I & N */
+        #4472FF 71%, #4472FF 100%); /* Remaining letters */
+      -webkit-background-clip: text;
+      color: transparent;
+      
+    }
+  
+  
+  
+  .hero-btn {
+    margin-top: 20px;
+    padding: 10px 50px;
+    font-size: 2rem;
+    width: 280px;
+    /* font-weight: bold; */
+    color: white;
+    background-color: #2194FE;
+    border: none;
+    border-radius: 5px 35px 35px 35px;
+    cursor: pointer;
+    transition: all  ease-in-out;
+    
+    /* transition: background 0.1s ease-in-out; */
+  }
+  
+  .hero-btn:hover {
+    background: linear-gradient(105deg, #525BD8, #f531d1);
+    transform: translateY(-3px); /* Moves the button up */
+    font-size: 1.9rem;
+    /* font-family: ; */
+  }
+  
+@media screen and (max-width: 600px){
+  .hero-title {
+    font-size: 1.7rem;
+    line-height: 2.8rem;
+    
+    
+  }
+  .hero-btn {
+    margin-top: 40px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+    
+  }
+  .hero-container{
+    margin-top: 90px;
+    margin-left: 10px;
+    /* margin-bottom: 0px; */
+  }
+}
+/* hiring */
+.hiring{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+.hiring-process{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* margin-top: 250px; */
+    margin-bottom: 50px;
+    color: #003061;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .hiring-process h1{
+    font-size: 45px;
+    font-weight: bold;
+  }
+  .hiring-process p{
+   color: #4B5563;
+   font-size: 1.7rem;
+   width: 900px;
+   text-align: center;
+   margin-top: 20px;
+  }
+  @media screen and (max-width:600px){
+    .hiring-process{
+        /* background-color: red; */
+        margin-top: 70px;
+      }
+      .hiring-process h1{
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .hiring-process p{
+        font-size: 15px;
+        margin-top: 15px;
+        text-align: center;
+        width: 90%;
+      }
+      
+  }
+
+  /* feature */
+
+  .feature{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+    margin-bottom: 60px;
+    font-family: "Poppins", sans-serif;
+    color: #003061;
+    font-weight: 600;
+    
+  }
+  .feature h3{
+    font-size: 2.6rem;
+  }
+  @media screen and (max-width:600px){
+    .feature{
+      margin-top: 50px;
+    }
+      .feature h3{
+        font-size: 1.8rem;
+        
+      }
+  }
+
+  .work{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .background-video{
+    width: 600px;
+    height: 500px;
+  }
+
+
+  /* benefits */
+
+  .smart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+  .smart h3{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  @media screen and (max-width:600px){
+    .smart h3{
+        font-size: 1.3rem;
+        
+      }
+      .background-video{
+        width: 300px;
+        height: 300px;
+      }
+    
+  }
+
+
+  /* footer */
+  .main-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    
+}
+  .main-div1{
+    background: linear-gradient(90deg, #293DA1,#293DA1,#634CF4,#B54AB2, #E14883);
+    width: 1480px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    border-radius: 10px;
+
+  }
+  .community h2{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+  }
+  .community p{
+    color: white;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  .footer-input {
+    width: 550px;
+     
+    padding: 16px 5px;
+    border: 1px solid rgb(234, 231, 231); 
+    border-radius: 9px; 
+    outline: none; 
+    font-size: 16px; 
+
+}
+
+/* Change the placeholder color */
+.footer-input::placeholder {
+    color: white; 
+    font-style: italic; 
+}
+.sub{
+    margin-left: 10px;
+    padding: 16px 15px;
+    background-color: white;
+    color: #4F46E5;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .main-div1 {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+        width: 90%;
+        height: 420px;
+        background: linear-gradient(180deg, #293DA1,#293DA1,#634CF4,#B54AB2, #E14883);
+    }
+
+    .community h2 {
+        font-size: 22px;
+    }
+
+    .footer-input {
+        margin-top: 5px;
+        width: 100%; 
+    }
+
+    .sub {
+        margin-left: 0px;
+        margin-top: 5px;
+        width: 100%; 
+    }
+}
+
+/* Footer Styling */
+/* Footer Styling */
+.footer {
+    
+    color: #2563EB;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    width: 23%;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    /* padding: 0; */
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: rgb(83, 82, 82);
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: black;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+
+
+/* Horizontal Line */
+.footer-line {
+  
+    width: 90%;
+    /* margin: 90px auto; */
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-top: 2px solid rgb(100, 99, 99);
+}
+
+/* Bottom Footer Section */
+.bottom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.bottom-footer p {
+    margin: 0;
+    color: black;
+    font-size: 20px;
+}
+
+.footer-links a {
+    color: black;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .bottom-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        margin-top: 5px;
+    }
+}
+
+
+/* login page */
+.login-page{
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+.login1-page{
+  margin-top: 30px;
+}
+.login2-page{
+  margin-top: 15px;
+}
+.login-btn{
+  margin-top: 10px;
+}
+
+/* companylogin */
+.company-descp{
+  text-align: left; 
+  vertical-align: top;
+}
+.comp-login{
+  margin-top: 20px;
+}
+.writeText{
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+.writeText1{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* login */
+.login-image{
+  margin-top: 27px;
+}
+.login-para{
+  margin-top: 10px;
+}
+
+/* active link */
+/* .active {
+  color: rgb(57, 120, 237);
+  font-weight: bold;
+  border: 2px solid rgb(57, 120, 237);
+  border-radius: 18px;
+} */
+.popupdiv{
+  padding: 2px;
+}
+
+/* register recruiter */
+.register{
+  padding: 25px 35px;
+  
+}
+.registertitle{
+  margin-bottom: 25px;
+}
+
+.recruterpadding{
+  padding: 20px 20px;
+}
+/* loginpage */
+.login{
+  margin-top: 20px;
+}
+
+
+
+/* sidebar2 */
+.sidebar2{
+  margin-left: 20px;
+}
+
+/* candely */
+.back{
+  padding: 10px 10px;
+  background-color: rgb(76, 76, 236);
+  color: white;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.backdiv{
+  margin-left: 225px;
+  margin-top: 25px;
+}
+
+/* side bar */
+
+
+
+/* Active button with gradient background */
+/* Active state when sidebar is expanded */
+/* Ensure active button doesn't overflow */
+.activeside,
+.collapsed-active {
+  /* width: 100%;  */
+  border-radius: 10px;
+  background: linear-gradient(90deg, #3D7AFE, #3E7AFF, #3E7AFF, #3E7AFF, #9046E1, #B54AB2, #E14883);
+  padding: 10px;
+  box-sizing: border-box; 
+  color: white;
+ 
+}
+.collapsed-active  {
+  background: linear-gradient(to bottom right, #3D7AFE, #9046E1, #E14883);
+  color: white;
+  
+  
+
+}
+.activeside span,
+.collapsed-active span {
+  color: white !important;
+}
+.activeside svg,.collapsed-active svg{
+  color: white;
+}
+
+
+
+
+/* sidebar */
+
+
+/* Collapsed active sidebar styling */
+.collapsed-active {
+  background: linear-gradient(to bottom right, #3D7AFE, #9046E1, #E14883);
+}
+
+
+
+/* Sidebar button */
+.sidebarbtn {
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  width: 80%; /* Full width when expanded */
+}
+.sidebarbtnsm{
+  width: 60%;
+}
+
+
+.main{
+  margin-left: 20px;
+}
+.main1{
+  margin-left: 0px;
+}
+.sidenav{
+  margin-left:20px ;
+}
+.sidebarlogo{
+  margin: 25px 25px 10px  25px;
+  
+ 
+}
+.sidebarhrline{
+  margin-left: 20px;
+}
+.sidebarlogoDown{
+  margin-left: 20px;
+}
+.sidebarsmalllogo{
+  margin-right: 30px;
+  
+  width: 60%;
+  
+}
+.sidebarsmalllogo1{
+  margin-right: 15px!important;
+  margin-top: 10px;
+}
+
+/* login placeholder */
+
+.shift-placeholder {
+  padding-left: 7px; /* Shift the text and placeholder by 10px */
+}
+
+.shift-placeholder::placeholder {
+  padding-left: 7px; /* Shift only the placeholder by 10px */
+}
+
+/* card4 */
+.matches{
+  background-color: #2563EB;
+    padding: 10px 70px ;
+    border-radius: 5px;
+    margin-top: 40px;
+    color: white;
+    width: 90%;
+
+}
+.card4Upcoming{
+  padding: 10px 20px;
+}
+
+
+
+
+/* dashboard */
+.dash{
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.dash1{
+  margin: 10px 30px;
+}
+.dash2{
+  margin-top: 10px;
+}
+.data{
+  /* background-color: red; */
+  padding: 50px 10px;
+  border-radius: 10px;
+  
+}
+.dashicon{
+  padding: 15px 15px;
+  background-color: #DBEAFE;
+}
+.recent1{
+  padding: 20px 50px;
+  /* margin-top: 50px; */
+}
+.recent{
+  margin: 60px 30px ;
+}
+.frontend{
+  margin-top: 30px;
+  padding: 10px 20px;
+}
+
+/* .searchjob{
+  margin-top: 30px;
+  
+} */
+.search2{
+  padding: 10px 12px;
+}
+.draft1{
+  padding: 20px 20px;
+ margin-top: 50px;
+}
+.posting{
+  padding: 10px 20px;
+}
+/* .choosefile{
+  padding: 10px 10px;
+} */
+/* .screeninput{
+  padding: 10px 20px;
+} */
+/* .screeninput1{
+  height: 200px;
+
+} */
+/* .jobtitle{
+  margin-bottom: 20px;
+} */
+.dash3{
+  margin-top: 100px;
+}
+/* .submit{
+  padding: 30px 20px;
+} */
+
+
+/* resume analysys */
+.resumeAnaly{
+  margin-top: 20px;
+}
+.resumeAnaly1{
+  margin-top: 50px;
+}
+.resumeSta{
+  margin-top: 50px;
+}
+.resumeReport{
+  margin-top: 80px;
+}
+.sam{
+  margin-left: 5px;
+}
+
+/* candidate card */
+.candi{
+  margin-top: 50px;
+
+}
+.candi1{
+  margin-top: 40px;
+}
+
+/* resume analysis */
+.resumehead{
+  margin-top: 100px;
+}
+
+/* job posting */
+.formcreatejob{
+  margin-top: 60px;
+}
+.savejobcreate{
+  margin-top: 15px;
+}
+
+.data{
+  margin-top: 10px;
+}
+.data1 {
+  margin-top: 20px;
+}
+
+/* profile pic */
+.propic{
+  margin-top: 150px;
+  margin-left: 35px;
+}
+
+.logout{
+  margin: 10px 30px;
+  margin-top: 110px;
+  padding: 9px 13px;
+}
+.log{
+  /* margin-top: 50px; */
+}
+.protitle{
+  margin: 0px 30px;
+}
+.logout1{
+  margin-top: -25px;
+}
+.logout2{
+  margin-top: 10px;
+}
+.datainfo{
+  margin-top: 16px;
+}
+
+/* resume detail */
+.resumed{
+  margin: 20px 30px;
+}
+.resumeselect{
+  padding: 10px 20px;
+}
+
+.table td{
+  padding: 7px 20px;
+}
+/* .overscore{
+  margin-right: 80px;
+} */
+.strength{
+  padding: 25px 30px;
+  margin-top: 40px;
+  padding-bottom: 30px;
+  
+}
+.strength1{
+  margin-top: 15px;
+  
+
+}
+.strginfo{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+
+/* resume result */
+.resultdiv{
+  padding: 20px 30px;
+}
+.scoring{
+  margin-top: 20px;
+}
+.resumeresult{
+  padding: 30px 10px;
+}
+.status1{
+  padding: 5px 5px ;
+}
+.weakness1{
+  padding: 10px 10px!important ;
+  /* background-color: red; */
+  /* color: red!important; */
+}
+
+
+/* candidate interview */
+
+.ready{
+  padding: 5px 10px;
+}
+.ready1{
+  margin-top: 10px;
+}
+.camera-border{
+  margin: 5px 20px;
+  border-bottom: 10px solid black;
+}
+.sidecamera{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.recording{
+  padding: 10px 20px;
+}
+.question{
+  
+  margin: 0px 20px;
+}
+.question1{
+  /* background-color: red; */
+  margin: 5px 20px;
+}
+.next{
+  padding: 5px 7px;
+}
+.cursor{
+  cursor: pointer;
+}
+.processing{
+  /* padding: 0px 20px; */
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+.goto{
+  margin-top: 40px;
+  padding: 5px 10px;
+}
+
+/* resume analysis */
+/* .resumetable{
+ margin-bottom: -20px;
+ background-color: red;
+} */
+
+.selectcan{
+  padding: 10px 10px;
+}
+.resumebtn{
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.profilenav{
+  margin: 10px 20px;
+}
+.personaldiv{
+  margin: 20px 20px;
+}
+/* .personaldiv1{
+  background-color: red;
+} */
+.personaltitle{
+  font-size: 20px;
+  margin-bottom: 2px;
+  padding: 1px 10px;
+}
+.personal2{
+  padding: 10px 10px;
+}
+.freshtick{
+  margin: 10px 30px;
+}
+.addmore{
+  padding: 10px 10px;
+  margin-bottom: 8px;
+}
+.cancel{
+  margin-bottom: 50px;
+  margin-right: 40px;
+}
+.profileinput{
+  padding: 10px 10px;
+}
+.profilelogout{
+  padding: 20px 20px;
+  /* background-color: red; */
+}
+.profilehead{
+  margin-bottom: 10px;
+}
+.profilemail{
+  margin-bottom: 10px;
+}
+.profileimg{
+  margin-bottom: 10px;
+}
+
+
+/* after logout */
+.perinfo{
+  padding: 10px 10px;
+  margin-bottom: 15px;
+}
+.joblink{
+  margin-bottom: 30px;
+  /* padding: 0px 60px; */
+}
+.joblink1{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+.joblink2{
+  padding-bottom: 30px;
+  /* background-color: red; */
+}
+.perhead{
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+
+/* admin logo */
+.adminlogo{
+  margin: 10px 10px;
+}
+.adminlogo1{
+  margin: 10px 20px;
+}
+.adminnav{
+  padding: 5px 10px;
+}
+
+.signin{
+  padding: 10px 20px;
+}
+.singin1{
+  margin-bottom: 10px;
+}
+.signinbtn{
+  padding: 8px;
+}
+.resumed{
+  margin: 20px 30px;
+}
+.resumeselect{
+  padding: 10px 20px;
+}
+
+.table td{
+  padding: 7px 20px;
+}
+.overscore{
+  margin-right: 80px;
+}
+.strength{
+  padding: 25px 30px;
+  margin-top: 40px;
+  padding-bottom: 30px;
+  
+}
+.strength1{
+  margin-top: 15px;
+}
+.strginfo{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.mt{
+  margin-top: 30px;
+}
+
+.aiimg{
+  margin-bottom: 160px;
+}
+
+.padding{
+      padding: 18px 15px 18px 50px;
+}
+.swal2-icon.swal2-icon-custom {
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 1rem !important; /* Adjust if using font-based icons */
+}
+
+/* For the icon image (if not using font icons) */
+.swal2-icon.swal2-icon-custom img {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.work{
+  margin-bottom: 170px;
+}
+.workhead{
+  margin-bottom: 60px;
+}
+@media screen and (max-width:600px) {
+  .work {
+    margin-top: 60px;
+
+    margin-bottom: 100px;
+    
+  }
+  .workhead{
+    margin-bottom: 40px;
+    /* background-color: red; */
+  }
+  
+}
+
+
+/* CardSlider.css */
+.cardmaindiv{
+  /* background: linear-gradient(105deg, #525BD8, #f531d1); */
+  padding: 55px 0px;
+}
+.slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding: 0 15px; */
+  box-sizing: border-box;
+  /* background: linear-gradient(105deg, #525BD8, #f531d1); */
+ 
+
+}
+
+/* Style for each slide */
+.slide {
+  /* padding: 10px; */
+  box-sizing: border-box;
+}
+
+/* Make sure Slick carousel elements respect container */
+.slick-slider {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure arrows don't create horizontal scrolling */
+.slick-prev, .slick-next {
+  z-index: 10;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .slider-container {
+      padding: 0 5px;
+  }
+  
+  .slide {
+      padding: 5px;
+  }
+  
+  /* Position arrows for mobile */
+  .slick-prev {
+      left: 0px;
+  }
+  
+  .slick-next {
+      right: 0px;
+  }
+}
+
+.comp-login-page{
+  padding: 15px 25px;
+}

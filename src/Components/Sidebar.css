@@ -1,0 +1,158 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* side bar */
+
+
+
+/* Active button with gradient background */
+/* Active state when sidebar is expanded */
+/* Ensure active button doesn't overflow */
+.activeside,
+.collapsed-active {
+/* width: 100%;  */
+border-radius: 10px;
+background: linear-gradient(90deg, #3D7AFE, #3E7AFF, #3E7AFF, #3E7AFF, #9046E1, #B54AB2, #E14883);
+padding: 10px;
+box-sizing: border-box; 
+color: white;
+
+}
+.collapsed-active  {
+background: linear-gradient(to bottom right, #3D7AFE, #9046E1, #E14883);
+color: white;
+
+
+
+}
+.activeside span,
+.collapsed-active span {
+color: white !important;
+}
+.activeside svg,.collapsed-active svg{
+color: white;
+}
+
+
+
+
+/* sidebar */
+
+
+/* Collapsed active sidebar styling */
+.collapsed-active {
+background: linear-gradient(to bottom right, #3D7AFE, #9046E1, #E14883);
+}
+
+
+
+/* Sidebar button */
+.sidebarbtn {
+padding: 10px;
+cursor: pointer;
+color: black;
+width: 80%; /* Full width when expanded */
+}
+.sidebarbtnsm{
+width: 80%;
+}
+
+
+.main{
+margin-left: 20px;
+}
+.main1{
+margin-left: 0px;
+}
+.sidenav{
+margin-left:20px ;
+}
+.sidebarlogo{
+margin: 25px 25px 10px  25px;
+
+
+}
+.sidebarhrline{
+margin-left: 20px;
+}
+.sidebarlogoDown{
+margin-left: 20px;
+}
+.sidebarsmalllogo{
+margin-right: 30px;
+
+width: 60%;
+
+}
+.sidebarsmalllogo1{
+margin-right: 15px!important;
+margin-top: 10px;
+}
+/* Add these rules to your Sidebar.css file */
+
+/* Common styles for all active states */
+.activeside,
+.collapsed-active {
+width: 100%; 
+border-radius: 10px;
+background: linear-gradient(90deg, #3D7AFE, #3E7AFF, #3E7AFF, #3E7AFF, #9046E1, #B54AB2, #E14883);
+padding: 10px;
+box-sizing: border-box; 
+color: white;
+white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Make sure the span doesn't wrap */
+.sidebarbtn span {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+/* Ensure the navbar links have consistent width */
+.sidenav ul li {
+width: 100%;
+}
+
+/* Fix the width of the sidebar buttons */
+.sidebarbtn {
+padding: 10px;
+cursor: pointer;
+color: black;
+width: 80%; /* Make all buttons take full width of their container */
+min-width: 0; /* Allow flexibility */
+display: flex;
+align-items: center;
+}
+
+/* When collapsed, adjust width */
+.sidebarbtnsm {
+width: 80%;
+justify-content: center;
+}
+
+/* Ensure container for expanded sidebar has enough width */
+.w-84 {
+width: 21rem; /* This matches the 84 in the class name */
+min-width: 21rem; /* Ensure minimum width */
+}
+.sidebarlogout{
+margin-left: -10px;
+margin-right: 75px;
+margin-bottom: 20px; 
+}
+.margintop1{
+margin-top: 80px;
+}
+.isCollapsed{
+ width: 100%;
+}
+/* .sidebarlogout :hover{
+  background: linear-gradient(to right, #e67e22, #dc2626);
+
+} */
+

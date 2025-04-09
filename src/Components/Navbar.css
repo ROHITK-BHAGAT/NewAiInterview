@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 100px;
+    height: 90px;
+    z-index: 999;
+    background-color: whitesmoke;
+  }
+  
+  .nav img {
+    width: 250px;
+    height: 75px;
+  }
+  
+  /* Container for buttons */
+  .nav .button-container {
+    margin-left: auto; /* Pushes buttons to the right */
+    display: flex;
+    gap: 20px; /* Space between buttons */
+  }
+  
+  .btndemo {
+    background-color: #2194FE;
+    color: white;
+    border-radius: 4px;
+    padding: 15px 25px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+  }
+
+  /* Add to your Navbar.css */
+.calendly-popup-content {
+    border-radius: 8px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .calendly-popup-close {
+    color: #333 !important;
+    font-size: 24px !important;
+  }
+  
+  /* This targets Calendly elements once they're loaded */
+  .calendly-inline-widget {
+    font-family: 'Your preferred font', sans-serif;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .nav {
+      padding: 0 20px;
+      height: 80px;
+    }
+  
+    .nav img {
+      width: 150px;
+      height: 40px;
+    }
+  
+    .nav .button-container {
+      gap: 10px;
+    }
+  
+    .btndemo {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+  }
+  
+  

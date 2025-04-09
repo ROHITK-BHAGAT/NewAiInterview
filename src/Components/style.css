@@ -1,0 +1,33 @@
+
+.loader3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+  }
+  
+  .loader3::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 5px solid grey;
+    border-top-color: blue;
+    border-radius: 50%;
+    animation: loader3-animation 1s ease-out infinite;
+  }
+
+  @keyframes loader3-animation {
+    from {
+      transform: rotate(0turn);
+    }
+  
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  .p-5 {
+    padding: 1.25rem !important;
+  }
+  

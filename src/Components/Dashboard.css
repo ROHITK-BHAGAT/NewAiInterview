@@ -1,0 +1,164 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+/* dashboard */
+.dash{
+  margin-left: 0px;
+  margin-top: 15px;
+}
+.dash1{
+  margin-right: 10px;
+  margin-top: 4px;
+}
+.dash2{
+  margin-top: 10px;
+}
+
+.dashicon{
+  padding: 15px 15px;
+  background-color: #DBEAFE;
+}
+.dashicon1{
+  padding: 15px 15px;
+  background-color: #DCFCE7;
+}
+.dashicon2{
+  padding: 15px 15px;
+  background-color: #F3E8FF;
+}
+.dashicon3{
+  padding: 15px 15px;
+  background-color: #FEF9C3;
+}
+
+
+.margin1{
+  margin-top: 5px;
+}
+
+.mb4{
+  margin-bottom: 10px;
+}
+
+
+
+
+
+.recent1{
+  padding: 20px 50px;
+  /* margin-top: 50px; */
+}
+.recent{
+  margin: 60px 25px ;
+}
+.frontend{
+  margin-top: 30px;
+  padding: 10px 20px;
+}
+
+.searchjob{
+  margin-top: 30px;
+  
+}
+
+.draft1{
+  padding: 20px 20px;
+ margin-top: 50px;
+}
+.posting{
+  padding: 10px 20px;
+}
+.choosefile{
+  padding: 10px 10px;
+}
+.screeninput{
+  padding: 10px 20px;
+}
+.screeninput1{
+  height: 200px;
+
+}
+.jobtitle{
+  margin-bottom: 20px;
+}
+.dash3{
+  margin-top: 100px;
+}
+.submit{
+  margin-left: 40px;
+
+}
+/* Add these styles to your Dashboard.css file */
+
+/* Base dashboard styles */
+.dash-container {
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Adjust margins based on sidebar state */
+.sidebar-expanded .dash {
+  margin-left: 30px;
+}
+
+.sidebar-collapsed .dash {
+  margin-left: 15px;
+  width: calc(100% - 15px); /* Give more space to dashboard when sidebar is collapsed */
+}
+
+/* Make data cards responsive */
+.data-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.data {
+  width: 100%;
+  padding: 30px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* Make recent sections responsive */
+.recent-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.recent1 {
+  padding: 20px;
+  height: 100%;
+  min-height: 300px;
+}
+
+/* Responsive chart */
+.chart-container {
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1200px) {
+  .recent-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .data-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}

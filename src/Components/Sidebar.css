@@ -97,7 +97,7 @@ margin-top: 10px;
 /* Common styles for all active states */
 .activeside,
 .collapsed-active {
-width: 100%; 
+/* width: 80%;  */
 border-radius: 10px;
 background: linear-gradient(90deg, #3D7AFE, #3E7AFF, #3E7AFF, #3E7AFF, #9046E1, #B54AB2, #E14883);
 padding: 10px;
@@ -109,7 +109,7 @@ white-space: nowrap; /* Prevent text wrapping */
 /* Make sure the span doesn't wrap */
 .sidebarbtn span {
 white-space: nowrap;
-overflow: hidden;
+/* overflow: hidden; */
 text-overflow: ellipsis;
 }
 

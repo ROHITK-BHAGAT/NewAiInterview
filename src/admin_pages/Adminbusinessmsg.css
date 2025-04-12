@@ -1,17 +1,260 @@
-.business{
-padding: 20px;
-border-radius: 5px;
+/* Admin Business Message Enhanced Styles */
+
+/* Main layout styling */
+.admin-content {
+  flex: 1;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  background-color: #f5f7fb;
 }
 
-.bm{
-    margin: 0px 50px ;
+.admin-content-collapsed {
+  margin-left: 80px;
 }
 
-.bms{
-    margin-top: 10px;
+/* Card styling */
+.admin-content .shadow {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
 }
 
-.company{
-    padding: 10px;
-    
+/* Header styling */
+.business {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  display: flex;
+  align-items: center;
 }
+
+.business h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  margin: 0;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Table styling */
+.admin-content table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.admin-content table th {
+  position: sticky;
+  top: 0;
+  background-color: #f8fafc;
+  z-index: 1;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.admin-content table td {
+  padding: 0.875rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.admin-content table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-content table tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Company size and tags */
+.compsize {
+  padding: 0.4rem 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  line-height: 1;
+  background-color: #ecfdf5;
+  color: #047857;
+}
+
+/* Industry tag */
+.admin-content table td span.inline-flex:not(.compsize) {
+  padding: 0.4rem 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+/* Button styling */
+.admin-content button {
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-content button.bg-blue-900 {
+  background-color: #1e3a8a;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.admin-content button.bg-blue-900:hover {
+  background-color: #1e40af;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-content button.text-blue-600 {
+  font-size: 0.75rem;
+  padding: 0;
+  background: transparent;
+  text-decoration: underline;
+}
+
+.admin-content button.text-blue-600:hover {
+  color: #1d4ed8;
+}
+
+/* Link styling */
+.admin-content a.text-blue-600 {
+  text-decoration: none;
+  position: relative;
+}
+
+.admin-content a.text-blue-600:hover {
+  color: #1d4ed8;
+}
+
+.admin-content a.text-blue-600::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.admin-content a.text-blue-600:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Checked status */
+.admin-content span.text-green-600 {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-content span.text-green-600::before {
+  content: '✓';
+  margin-right: 0.25rem;
+  font-weight: bold;
+}
+
+/* Loading spinner */
+.animate-spin {
+  border-color: #1e40af;
+  border-right-color: transparent;
+  border-width: 4px;
+}
+
+/* Description read more/less */
+.admin-content td[style*="max-width"] {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive table container */
+.admin-content .overflow-x-auto {
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 0 0 0.5rem 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+.admin-content .overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+.admin-content .overflow-x-auto::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.admin-content .overflow-x-auto::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 20px;
+}
+
+/* Ensure modals appear properly */
+.swal2-container {
+  z-index: 9999 !important;
+}
+
+.swal2-popup {
+  border-radius: 0.5rem !important;
+  padding: 1.5rem !important;
+}
+
+.swal2-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+.swal2-confirm {
+  background-color: #1e3a8a !important;
+  border-radius: 0.375rem !important;
+}
+
+.swal2-cancel {
+  border-radius: 0.375rem !important;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+  .admin-content {
+    padding: 1rem;
+  }
+  
+  .business {
+    padding: 1rem;
+  }
+  
+  .admin-content table th,
+  .admin-content table td {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .business h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* loading */

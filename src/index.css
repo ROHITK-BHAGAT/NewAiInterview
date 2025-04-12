@@ -22,7 +22,7 @@
 @media screen and (max-width: 600px){
     .nav{
         
-        margin: 10px 20px;
+        /* margin: 10px 20px; */
     }
     .nav img{
       width: 150px;
@@ -32,7 +32,7 @@
     /* background-color: #2194FE; */
     /* color: white; */
     border-radius: 4px;
-    padding: 10px 15px;
+    padding: 10px 10px;
     font-weight: bold;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -560,46 +560,33 @@
   background-color: rgb(76, 76, 236);
   color: white;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 .backdiv{
   margin-left: 225px;
   margin-top: 25px;
+  cursor: pointer;
 }
 
-/* side bar */
-
-
-
-/* Active button with gradient background */
-/* Active state when sidebar is expanded */
-/* Ensure active button doesn't overflow */
-.activeside,
-.collapsed-active {
-  /* width: 100%;  */
-  border-radius: 10px;
-  background: linear-gradient(90deg, #3D7AFE, #3E7AFF, #3E7AFF, #3E7AFF, #9046E1, #B54AB2, #E14883);
-  padding: 10px;
-  box-sizing: border-box; 
-  color: white;
- 
-}
-.collapsed-active  {
-  background: linear-gradient(to bottom right, #3D7AFE, #9046E1, #E14883);
-  color: white;
+@media screen and (max-width: 600px) {
+  .backdiv{
+    margin-left: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .back{
+   
+    font-size: 10px;
+  }
   
   
 
+
 }
-.activeside span,
-.collapsed-active span {
-  color: white !important;
-}
-.activeside svg,.collapsed-active svg{
-  color: white;
-}
+
+
 
 
 
@@ -878,20 +865,11 @@
 
 /* candidate interview */
 
-.ready{
-  padding: 5px 10px;
-}
-.ready1{
-  margin-top: 10px;
-}
-.camera-border{
-  margin: 5px 20px;
-  border-bottom: 10px solid black;
-}
-.sidecamera{
+
+/* .sidecamera{
   margin-left: 20px;
   margin-top: 20px;
-}
+} */
 .recording{
   padding: 10px 20px;
 }
@@ -1018,9 +996,7 @@
 .signin{
   padding: 10px 20px;
 }
-.singin1{
-  margin-bottom: 10px;
-}
+
 .signinbtn{
   padding: 8px;
 }
@@ -1158,3 +1134,5 @@
 .comp-login-page{
   padding: 15px 25px;
 }
+
+

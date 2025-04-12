@@ -1,0 +1,17 @@
+.ready2{
+    /* height: 70px; */
+}
+.ready{
+    padding: 5px 10px;
+    /* background-color: red; */
+    background-color: rgb(25, 120, 230);
+    /* border-radius: 5px 5px 5px 5px; */
+    margin-top: 10px;
+  }
+  .ready1{
+    margin-top: 10px;
+  }
+  .camera-border{
+    margin: 5px 20px;
+    border-bottom: 10px solid black;
+  }

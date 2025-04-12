@@ -3,7 +3,7 @@ import Login from "./Login";
 import axios from "../helper/Axios";
 // import { useLogin } from "../login/LoginContext";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useLogin } from "../auth/LoginContext";
 import { IoIosEyeOff } from "react-icons/io";
@@ -145,8 +145,12 @@ const LoginPage = () => {
                 </span>
               </div>
             </div>
-            <div className="login-btn">
+            <div className="login-btn flex items-center  gap-7">
+              <NavLink to='/'>
+              <button type="button"  className="w-[120px] h-[50px] mt-5 text-2xl bg-gray-300 text-white rounded-md transition-all duration-200 px-4 py-3 cursor-pointer">Cancel</button>
+              </NavLink>
               <button
+             
                 type="submit"
                 className="w-[120px] h-[50px] mt-5 text-2xl bg-gradient-to-br from-[#6363f3] to-[#f531d1] hover:from-[#3b3bce] hover:to-[#c61aa7] text-white rounded-md transition-all duration-200 px-4 py-3 cursor-pointer"
               >

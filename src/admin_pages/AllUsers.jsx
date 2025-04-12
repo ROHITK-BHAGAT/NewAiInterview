@@ -5,10 +5,31 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import SiderBar2 from '../Components/SiderBar2';
 import './Allusers.css';
+
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(
+        JSON.parse(localStorage.getItem("sidebarCollapsed")) || false
+    );
     const token = localStorage.getItem('token');
+
+    // Monitor sidebar collapse state
+    useEffect(() => {
+        const checkSidebarState = () => {
+            const sidebarState = JSON.parse(localStorage.getItem("sidebarCollapsed")) || false;
+            setIsSidebarCollapsed(sidebarState);
+        };
+
+        checkSidebarState();
+        window.addEventListener('storage', checkSidebarState);
+        window.addEventListener('sidebarChange', (e) => setIsSidebarCollapsed(e.detail.isCollapsed));
+        
+        return () => {
+            window.removeEventListener('storage', checkSidebarState);
+            window.removeEventListener('sidebarChange', (e) => setIsSidebarCollapsed(e.detail.isCollapsed));
+        };
+    }, []);
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -64,89 +85,90 @@ const AllUsers = () => {
         }
     };
 
-    if (loading) return <div className="flex justify-center items-center h-screen"><div className="animate-spin h-16 w-16 border-t-4 border-blue-600"></div></div>;
-
     return (
-        <div className="flex">
-        {/* Sidebar - 20% width */}
-        <div className="w-1/6">
-    <SiderBar2 />
-  </div>
-        {/* Main Content - 80% width */}
-        <div className="ml-72 flex-grow p-6 bg-white text-black margin">
-          <div className="bg-white p-6 rounded-md shadow-lg">
-            <div className="bg-blue-900 text-white px-6 py-4 flex justify-between rounded-lg items-center user">
-              <h2 className="text-2xl font-bold ">User List</h2>
-              <Link
-                to="/hr_register"
-                className="px-4 py-2 bg-white text-black rounded-lg font-bold list"
-              >
-                Register HR
-              </Link>
+        <div className="flex h-screen">
+            <SiderBar2 />
+            <div className={`admin-content ${isSidebarCollapsed ? 'admin-content-collapsed' : ''} bg-white text-black px-4 py-6 relative`}>
+                {loading ? (
+                    <div className="absolute top-0 left-8 right-0 bottom-0 flex flex-col justify-center items-center bg-white bg-opacity-80 z-10">
+                        <div className="w-16 h-16 border-4 border-blue-900 border-t-transparent rounded-full animate-spin mb-4"></div>
+                        <p className="text-blue-900 font-medium">Loading users...</p>
+                    </div>
+                ) : (
+                    <div className="bg-white shadow rounded-lg overflow-hidden w-full">
+                        <div className="bg-blue-900 text-white px-6 py-4 flex justify-between rounded-t-lg items-center user">
+                            <h2 className="text-2xl font-bold">User List</h2>
+                            <Link
+                                to="/hr_register"
+                                className="px-4 py-2 bg-white text-black rounded-lg font-bold list"
+                            >
+                                Register HR
+                            </Link>
+                        </div>
+
+                        <div className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead className="bg-gray-100 border-b whitespace-nowrap">
+                                    <tr>
+                                        {[
+                                            "Username",
+                                            "Email",
+                                            "User Type",
+                                            "Phone No",
+                                            "Company",
+                                            "Industry",
+                                            "Actions",
+                                        ].map((head) => (
+                                            <th
+                                                key={head}
+                                                className="px-6 py-4 text-left text-md font-medium text-gray-600 uppercase"
+                                            >
+                                                {head}
+                                            </th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-200">
+                                    {users.map((user) => (
+                                        <tr key={user.user_id} className="hover:bg-gray-50">
+                                            <td className="px-6 py-4 text-gray-900">{user.username}</td>
+                                            <td className="px-6 py-4 text-blue-600">
+                                                <a href={`mailto:${user.email}`}>{user.email}</a>
+                                            </td>
+                                            <td className="px-6 py-4 text-gray-500">{user.user_type}</td>
+                                            <td className="px-6 py-4 text-gray-500">{user.phone_no}</td>
+                                            <td className="px-6 py-4 text-gray-500">
+                                                {user.company || "N/A"}
+                                            </td>
+                                            <td className="px-6 py-4 text-gray-500">
+                                                {user.industry || "N/A"}
+                                            </td>
+                                            <td className="px-6 py-4 flex gap-3 items-center">
+                                                <button
+                                                    className="px-3 py-1 bg-blue-900 text-white rounded-lg mr-2"
+                                                    onClick={() => handleEditClick(user)}
+                                                >
+                                                    <Edit size={16} />
+                                                </button>
+                                                <button
+                                                    className="px-3 py-1 bg-red-600 text-white rounded-lg"
+                                                    onClick={() => handleDeleteUser(user.user_id)}
+                                                >
+                                                    <Trash2 size={16} />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        {users.length === 0 && (
+                            <div className="text-center py-6 text-gray-500">No users found</div>
+                        )}
+                    </div>
+                )}
             </div>
-  
-            <div className="overflow-x-auto ">
-              <table className="w-full ">
-                <thead className="bg-gray-100 border-b ">
-                  <tr>
-                    {[
-                      "Username",
-                      "Email",
-                      "User Type",
-                      "Phone No",
-                      "Company",
-                      "Industry",
-                      "Actions",
-                    ].map((head) => (
-                      <th
-                        key={head}
-                        className="px-6 py-4 text-left text-md font-medium text-gray-600 uppercase list"
-                      >
-                        {head}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 ">
-                  {users.map((user) => (
-                    <tr key={user.user_id} className="hover:bg-gray-50 ">
-                      <td className="px-6 py-4 text-gray-900 list">{user.username}</td>
-                      <td className="px-6 py-4 text-blue-600 list">
-                        <a href={`mailto:${user.email}`}>{user.email}</a>
-                      </td>
-                      <td className="px-6 py-4 text-gray-500 list">{user.user_type}</td>
-                      <td className="px-6 py-4 text-gray-500 list">{user.phone_no}</td>
-                      <td className="px-6 py-4 text-gray-500 list">
-                        {user.company || "N/A"}
-                      </td>
-                      <td className="px-6 py-4 text-gray-500 list">
-                        {user.industry || "N/A"}
-                      </td>
-                      <td className="px-6 py-4 flex gap-3 items-center list">
-                        <button
-                          className="px-3 py-1 bg-blue-900 text-white rounded-lg mr-2 list"
-                          onClick={() => handleEditClick(user)}
-                        >
-                          <Edit size={16} />
-                        </button>
-                        <button
-                          className="px-3 py-1 bg-red-600 text-white rounded-lg list "
-                          onClick={() => handleDeleteUser(user.user_id)}
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {users.length === 0 && (
-              <div className="text-center py-6 text-gray-500">No users found</div>
-            )}
-          </div>
         </div>
-      </div>
     );
 };
 

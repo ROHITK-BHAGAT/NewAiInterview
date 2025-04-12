@@ -3,6 +3,7 @@ import axios from '../helper/Axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import './SignUpFormHR.css'
 
 const SignUpFormHR = () => {
     const [userData, setUserData] = useState({
@@ -82,7 +83,7 @@ const SignUpFormHR = () => {
   <div className=" signin max-w-md w-full mx-auto p-6 shadow-lg rounded-lg bg-white">
     <button 
       onClick={handleBackClick} 
-      className="flex items-center space-x-2 text-teal-900 hover:text-blue-900"
+      className="flex items-center space-x-2 text-teal-900 hover:text-blue-900 cursor-pointer"
     >
       <ArrowLeft className="w-6 h-6" />
       <span>Back</span>

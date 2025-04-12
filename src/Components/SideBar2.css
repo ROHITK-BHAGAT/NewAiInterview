@@ -1,0 +1,120 @@
+/* side bar2 */
+/* Sidebar.css - Add or update these styles */
+
+/* Make sidebar fixed and full height */
+/* Base sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 10;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Common styles for all active states */
+  .activeside,
+  .collapsed-active {
+    width: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #3D7AFE, #3E7AFF, #3E7AFF, #3E7AFF, #9046E1, #B54AB2, #E14883);
+    padding: 10px;
+    box-sizing: border-box; 
+    color: white;
+    white-space: nowrap;
+  }
+  
+  /* Collapsed active styles */
+  .collapsed-active {
+    background: linear-gradient(to bottom right, #3D7AFE, #9046E1, #E14883);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Set text color for active links */
+  .activeside span,
+  .collapsed-active span,
+  .activeside svg,
+  .collapsed-active svg {
+    color: white !important;
+  }
+  .sidebar2logout{
+    margin-left: 30px;
+  }
+  
+  /* Admin specific styles */
+  .adminlogo {
+    margin-top: 10px;
+    padding: 10px;
+  }
+  
+  .adminlogo1 {
+    padding-left: 10px;
+  }
+  
+  /* Logout button styles */
+  .sidebar button.logout-btn {
+    display: flex;
+    align-items: center;
+    color: #ef4444;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .sidebar button.logout-btn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+  
+  /* Content margin adjustment based on sidebar state */
+  .admin-content {
+    margin-left: 280px; /* w-72 = 18rem = ~280px */
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 280px);
+  }
+  
+  .admin-content-collapsed {
+    margin-left: 108px; /* w-27 = ~108px */
+    width: calc(100% - 108px);
+  }
+  
+  
+  /* Active button with gradient background */
+  /* Active state when sidebar is expanded */
+  /* Ensure active button doesn't overflow */
+  .activeside,
+  .collapsed-active {
+    /* width: 100%;  */
+    border-radius: 10px;
+    background: linear-gradient(90deg, #3D7AFE, #3E7AFF, #3E7AFF, #3E7AFF, #9046E1, #B54AB2, #E14883);
+    padding: 10px;
+    box-sizing: border-box; 
+    color: white;
+   
+  }
+  .collapsed-active  {
+    background: linear-gradient(to bottom right, #3D7AFE, #9046E1, #E14883);
+    color: white;
+    
+    
+  
+  }
+  .activeside span,
+  .collapsed-active span {
+    color: white !important;
+  }
+  .activeside svg,.collapsed-active svg{
+    color: white;
+  }
+
+  .hrtwo{
+    margin-left: 20px;
+  }
+  .hrside2{
+    margin-right: 20px;
+  }

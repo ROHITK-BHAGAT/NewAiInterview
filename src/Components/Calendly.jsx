@@ -34,24 +34,28 @@ const Calendly = () => {
 
   return (
     <>
-   
+
       <div className='flex items-center backdiv'>
-          {showBackButton && (
-            <NavLink to="/">
-              <button className='back flex items-center fixed'>
-                <FaArrowLeft /> Back to home
-              </button>
-            </NavLink>
-          )}
-        </div>
-      <div className="calendly-container" style={{ height: '100vh', width: '100%' }}>
+        {showBackButton && (
+          <NavLink to="/">
+            <button className='back flex items-center fixed cursor-pointer'>
+              <FaArrowLeft /> Back to home
+            </button>
+          </NavLink>
+        )}
+      </div>
+      <div
+        className="calendly-container"
+        style={{ height: '100vh', width: '100%', marginTop: '55px' }}
+      >
         <div
           className="calendly-inline-widget"
           data-url="https://calendly.com/maitriai-sales/business-meet"
-          style={{ minWidth: '320px', height: '700px', marginTop: '25px' }}
+          style={{ minWidth: '320px', height: '700px' }}
         />
       </div>
-      
+
+
     </>
   );
 };

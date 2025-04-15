@@ -97,7 +97,7 @@ const Candidate_Interview = ({
 
   useEffect(() => {
     Swal.fire({
-      title: 'Demo Interview',
+      title: 'Candidate Interview',
       html: `
            <div style="text-align: left; margin-top: 10px;">
            
@@ -172,6 +172,9 @@ const Candidate_Interview = ({
         const { email, resume } = result.value;
         setResumeFile(resume);
         fetchQuestionsAndStart(email);
+      }else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Handle cancel button click - navigate to home page
+        navigate('/');
       }
     });
   }, []);
@@ -247,6 +250,7 @@ const Candidate_Interview = ({
       const response = await axios.post('/api/analyze', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          
         },
       });
 

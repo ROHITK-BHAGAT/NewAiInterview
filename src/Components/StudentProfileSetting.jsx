@@ -4,9 +4,10 @@ import { MdOutlineCancel } from "react-icons/md";
 import axios from "../helper/Axios"; // Ensure the correct path
 import { useLogin } from "../auth/LoginContext";
 import { useState,useEffect } from 'react';
+import { RxCross2 } from "react-icons/rx";
 const StudentProfileSetting = ({handleCancel}) => {
 
-
+  
     const token = localStorage.getItem("token");
     const [profileData, setProfileData] = useState({});
 
@@ -36,11 +37,11 @@ const StudentProfileSetting = ({handleCancel}) => {
       };
   return (
     <div>
-      <div className="absolute inset-0 flex justify-center items-start p-6 z-30 top-10 ">
+      <div className="absolute inset-0 flex justify-center items-start p-6 z-30 top-24 left-250 ">
   <div className=" rounded-lg shadow-lg p-6 bg-gray-50 text-gray-700 profilelogout">
     <div className="flex justify-between items-center gap-10 profilehead">
       <h1 className="text-2xl font-bold mb-6">Profile Settings</h1>
-      <MdOutlineCancel
+      <RxCross2
         size={22}
         onClick={handleCancel}
         className="cursor-pointer"
@@ -51,7 +52,7 @@ const StudentProfileSetting = ({handleCancel}) => {
       {/* Admin Profile Section */}
       <div className="flex items-center gap-1 space-x-4 profileimg">
         <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-          {profileData?.username?.slice(0, 1)}
+          {profileData?.username?.slice(0, 1).toUpperCase()}
         </div>
         <div>
           <p className="text-lg font-semibold">{profileData.username}</p>
@@ -78,7 +79,7 @@ const StudentProfileSetting = ({handleCancel}) => {
         <button
         type='button'
           onClick={handleLogout}
-          className="w-full bg-gradient-to-r from-yellow-500 to-red-500 m-2 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200 cursor-pointer addmore"
+          className="w-full bg-gradient-to-r from-white-500 to-white-500 m-2 text-red-500 py-2 px-4 rounded-lg hover:bg-gray-200 transition duration-200 cursor-pointer addmore"
         >
           Log out
         </button>

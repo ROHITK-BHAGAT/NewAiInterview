@@ -5,6 +5,7 @@ import './Profile.css';
 import { useLogin } from "../auth/LoginContext";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { BiSolidReport } from "react-icons/bi";
 
 const StudentSiderBar = ({handleCancel}) => {
     const { logout } = useLogin();
@@ -13,7 +14,7 @@ const StudentSiderBar = ({handleCancel}) => {
       logout();
     };
   return (
-    <div className="sidebar-container">
+    <div className="sidebar-container w-full  ">
       <div className="sidebar-inner">
         <div className="sidebar-header">
                                   <img src={logo} loading="lazy" alt="Logo" />
@@ -48,13 +49,25 @@ const StudentSiderBar = ({handleCancel}) => {
                 <span>Interview Demo</span>
               </NavLink>
             </li>
-            <li className="sidebar-item bg-gradient-to-r from-yellow-500 to-red-500 border border-gray-300 rounded-lg w-full text-white flex justify-center">
+
+            {/* remaining to integrate api */}
+            
+            <li>
+              <NavLink
+              className="sidebar-link"
+              >
+
+              <BiSolidReport className="sidebar-icon"/>
+                <span>Interview Report</span>
+              </NavLink>
+            </li>
+            <li className="sidebar-item  border border-gray-300 rounded-lg w-full text-red-500 flex justify-center hover:bg-gray-300">
               <Link onClick={handleLogout}
                 to="#"
                 className="logoutSiderbar"
               >
-                <LogOut className="sidebar-icon" color="white" />
-                <span className="text-white">Logout</span>
+                <LogOut className="sidebar-icon" color="red" />
+                <span className="text-red">Logout</span>
               </Link>
             </li>
             

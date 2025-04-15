@@ -2,7 +2,7 @@ import React from 'react'
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from "../helper/Axios"; 
+import axios from "../helper/Axios";
 import Swal from 'sweetalert2';
 
 const CompanyLoginPage = ({ isModal = false, closeModal }) => {
@@ -15,7 +15,7 @@ const CompanyLoginPage = ({ isModal = false, closeModal }) => {
     company_website: '',
     company_size: '',
     company_location: "",
-    Industry:'',
+    Industry: '',
   });
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
@@ -23,8 +23,19 @@ const CompanyLoginPage = ({ isModal = false, closeModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); 
-    setSuccessMessage(''); 
+    setError(null);
+    setSuccessMessage('');
+    setFormData({
+      company_name: '',
+      contact_person_name: '',
+      business_email: '',
+      phone_number: '',
+      company_description: '',
+      company_website: '',
+      company_size: '',
+      company_location: "",
+      Industry: '',
+    });
 
     try {
       const response = await axios.post('/api/companies/', formData, {
@@ -34,8 +45,8 @@ const CompanyLoginPage = ({ isModal = false, closeModal }) => {
       });
 
       if (response.status === 200 || response.status === 201) {
-        setSuccessMessage('Message Sent successfully!');
-        
+        // setSuccessMessage('Message Sent successfully123!');
+
         Swal.fire({
           title: 'Message Sent successfully!',
           text: 'Your message has been sent successfully and is being processed. Kindly wait for further response.',
@@ -72,9 +83,9 @@ const CompanyLoginPage = ({ isModal = false, closeModal }) => {
 
   return (
     <div className='flex items-center justify-center px-4 py-6 recruterpadding'>
-      {successMessage && <div className="text-green-500 text-center mb-4">{successMessage}</div>}
+      {/* {successMessage && <div className="text-green-500 text-center mb-4">{successMessage}</div>} */}
       {error && <div className="text-red-500 text-center mb-4">{error}</div>}
-      
+
       <form onSubmit={handleSubmit} className='w-full max-w-5xl rounded-2xl shadow-2xl p-4 md:p-8 login-page comp-login-page' autoComplete="off">
         <div className='flex flex-col items-center justify-center login1-page'>
           <div className='w-full'>

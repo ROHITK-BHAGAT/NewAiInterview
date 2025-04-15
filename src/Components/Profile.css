@@ -1,5 +1,5 @@
 .mainStudent{
-    margin-left: 230px;
+    /* margin-left: 230px; */
    
 }
 .studentContainer{
@@ -124,4 +124,59 @@
 }
 .resumeanalysis{
   padding: 10px;
+}
+/* Add these styles to your Profile.css */
+
+@media (max-width: 1024px) {
+  .mainStudent {
+    margin-left: 0;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .studentContainer {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .sidebar-container {
+    z-index: 1000; /* Ensure sidebar stays above content */
+  }
+  
+  .profile-content {
+    margin-left: 0;
+    width: calc(100% - 2rem); /* Account for padding */
+  }
+}
+
+@media (max-width: 768px) {
+  .personal2 {
+    grid-template-columns: 1fr !important; /* Stack form elements */
+  }
+  
+  .flex.justify-center {
+    flex-direction: column;
+  }
+}
+/* Ensure sidebar and profile content stack vertically on small screens */
+@media (max-width: 768px) {
+  .sidebar-container {
+    width: 100% !important;
+    position: static !important;
+    height: auto !important;
+    margin-bottom: 1rem; /* Adds gap below sidebar on mobile */
+  }
+
+  .profile-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* Add gap between sidebar and profile on larger screens */
+@media (min-width: 768px) {
+  .sidebar-container {
+    margin-right: 1.5rem; /* Adds gap between sidebar and profile */
+  }
 }

@@ -44,43 +44,7 @@ function App() {
   }
   // const { user } = useLogin();
   return (
-    // <BrowserRouter>
-    // <BrowserRouter>
-    // <Routes>
-    //   <Route path="/" element={<Home />} />
-    //   <Route path="/login" element={<Login />} />
-    //   <Route path="/loginPage" element={<LoginPage />} />
-    //   <Route path="/companylogin" element={<CompanyLoginPage />} />
-    //   <Route path="/StudentProfile" element={<StudentProfile />} />
-    //   <Route path="/ai_hr/jobposting" element={<JobPosting />} />
-
-    //   <Route path="/job_details/:id" element={<JobDetails />}/>
-    //   {/* <Route path="/apply/:id" element={<Apply />}/> */}
-    //   <Route element={<ProtectedRoute />}>
-    //     <Route path="/dashboard" element={<Dashboard />} />
-    //     <Route path="/sidebar" element={<Sidebar />} />
-    //     <Route path="/jobposting" element={<JobPosting />} />
-    //     <Route path="/candidatescreening" element={<CandidateScreening />} />
-    //     <Route path="/resumeanalysis" element={<ResumeAnalysis />} />
-    //     <Route path="/selectedcandidate" element={<SelectedCandidate />} />
-    //     <Route path="/interviewreport" element={<InterviewReport />} />
-    //     <Route
-    //         path="/candidate_interview"
-    //         element={
-    //           <Candidate_Interview
-    //             initialQuestion={{
-    //               id: 1,
-    //               text: "Can you tell me about yourself?",
-    //               totalQuestions: 5,
-    //               currentQuestion: 1
-    //             }}
-    //             onAnswerComplete={handleAnswerComplete}
-    //           />
-    //         }
-    //       />
-    //   </Route>
-    // </Routes>
-    // </BrowserRouter>
+    
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />

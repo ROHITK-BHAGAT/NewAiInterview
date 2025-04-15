@@ -25,11 +25,11 @@
   }
   
   /* Header styling */
-  .bg-gradient-to-r {
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  /* .bg-gradient-to-r {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); 
     padding: 1.5rem;
     border-radius: 0.75rem 0.75rem 0 0;
-  }
+  } 
   
   .bg-gradient-to-r h1 {
     font-size: 1.875rem;
@@ -39,7 +39,7 @@
     color: white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
-  }
+  } */
   
   /* HR selection dropdown */
   .admin-content select {

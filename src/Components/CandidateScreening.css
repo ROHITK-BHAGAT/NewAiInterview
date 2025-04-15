@@ -375,3 +375,16 @@
   color: #3b82f6;
   margin-right: 5px;
 }
+
+/* responsive */
+.mt10{
+  margin-top: 10px;
+  margin-left: 35px;
+}
+
+@media (min-width: 768px) {
+  .mt10{
+    margin-top: 5px;
+    margin-left: 0px;
+  }
+}

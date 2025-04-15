@@ -158,7 +158,10 @@ const Dashboard = () => {
       <div className={`flex-1 dash-container ${isSidebarCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'}`}>
         <div className="dash">
           {/* Header row with single profile icon */}
-          <div className="flex justify-between items-center">
+
+          {/* responsive */}
+
+          {/* <div className="flex justify-between items-center">
             <div>
               <p className="text-3xl font-bold">Welcome back, {userName}</p>
               <p className="text-gray-500 mt-2 text-xl margin1">Master Your Skills with AI</p>
@@ -170,6 +173,20 @@ const Dashboard = () => {
                   onClick={toggleProfileCard}
                 >
                   <CgProfile color="hotpink" size={40} />
+                </div> */}
+
+            <div className="flex justify-between ">
+            <div className="welcome">
+              <p className="md:text-3xl text-xl font-bold">Welcome back, {userName.split('@')[0]}</p>
+              <p className="text-gray-500 mt-2 md:text-xl margin1">Master Your Skills with AI</p>
+            </div>
+            <div className="flex justify-center items-center gap-4">
+              <div className="relative">
+                <div
+                  className="w-[60px] h-[60px] rounded-full cursor-pointer flex justify-center"
+                  onClick={toggleProfileCard}
+                >
+                  <CgProfile color="hotpink" size={40} className="pl absolute top-0 right-0 md:static"/>
                 </div>
                 {showProfileCard && (
                   <div className="absolute right-0 top-full mt-2 z-50">
@@ -228,7 +245,11 @@ const Dashboard = () => {
             <div className="rounded-2xl border-2 border-gray-200 recent1 overflow-hidden">
               <div className="flex justify-between p-4">
                 <div>
-                  <p className="text-2xl font-bold">Recent Interview</p>
+
+                  {/* responsive */}
+                  {/* <p className="text-2xl font-bold">Recent Interview</p> */}
+                  <p className="text-xl font-bold">Recent Interview</p>
+
                 </div>
                 <div>
                   <button
@@ -249,7 +270,10 @@ const Dashboard = () => {
                         </div>
                         <div>
                           <p className="text-xl font-medium">{interview?.candidate_info?.name || 'N/A'}</p>
-                          <p className="text-gray-400">{interview?.job_title || 'N/A'}</p>
+                          {/* responsive */}
+                          {/* <p className="text-gray-400">{interview?.job_title || 'N/A'}</p> */}
+                          <p className="text-gray-400 md:text-lg text-sm">{interview?.job_title || 'N/A'}</p>
+
                         </div>
                       </div>
                     </div>
@@ -263,18 +287,29 @@ const Dashboard = () => {
             <div className="rounded-2xl border-2 border-gray-200 recent1 overflow-hidden">
               <div className="flex justify-between p-4">
                 <div>
-                  <p className="text-2xl font-bold">Recent Applications</p>
+                  {/* responsive */}
+                  {/* <p className="text-2xl font-bold">Recent Applications</p> */}
+                  <p className="text-xl font-bold">Recent Applications</p>
                 </div>
                 <div>
-                  <button
+                  {/* responsive */}
+
+                  {/* <button
                     className="text-xl text-[#4F46E5] cursor-pointer"
+                    onClick={() => navigate("/jobposting")}
+                  >
+                    View All
+                  </button> */}
+
+                  <button
+                    className="md:text-xl text-xl text-[#4F46E5] cursor-pointer"
                     onClick={() => navigate("/jobposting")}
                   >
                     View All
                   </button>
                 </div>
               </div>
-              <div className="px-4" style={{ maxHeight: "220px" }}>
+              <div className="px-4" style={{ maxHeight: "324px" }}>
                 {displayedJobs.length > 0 ? (
                   displayedJobs.map((job, index) => (
                     <div key={index} className="flex items-center justify-between frontend bg-gray-100 rounded-2xl mb-3 p-3">
@@ -284,7 +319,8 @@ const Dashboard = () => {
                         </div>
                         <div>
                           <p className="text-xl font-medium">{job.job_title || 'N/A'}</p>
-                          <div className="flex items-center gap-2 text-gray-400">
+                          {/* responsive */}
+                          <div className="text-sm md:text-lg flex items-center gap-2 text-gray-400">
                             <span><FaLocationDot /></span>
                             <span>{job.location}</span>
                             <span>{job.job_type}</span>
@@ -308,7 +344,7 @@ const Dashboard = () => {
           </div>
 
           {/* Chart Section */}
-          <div className="chart-container bg-white p-6 rounded-xl">
+          <div className="chart-container bg-white p-6 rounded-xl hidden md:block">
             <h2 className="text-2xl font-bold mb4">Statistics</h2>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={data}>

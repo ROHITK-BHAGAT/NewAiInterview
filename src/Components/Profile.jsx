@@ -417,10 +417,10 @@ const StudentProfile = () => {
     }));
   };
 
-  const [isFresher, setIsFresher] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckbox = (e) => {
-    setIsFresher(e.target.checked);
+    setIsChecked(!isChecked);
   };
 
   if (loading) return <div className="text-center text-white">Loading...</div>;
@@ -429,14 +429,16 @@ const StudentProfile = () => {
   return (
     <>
       {profile?.user_type === "candidate" && (
-        <div className="flex justify-center">
+        <div className="flex flex-col justify-between md:flex-row  lg:gap-28 bg-gray-200">
+          
           {/* Added Sidebar - No other changes made */}
+          <div className="w-full md:w-64 lg:w-65 flex-shrink-0">
           <StudentSiderBar className="w-[20%]" handleCancel={handleCancel} />
-
+          </div>
           {/* Your existing content exactly as you wrote it */}
-          <div className="parentmain"></div>
-          <div className="ml-64 bg-gray-200 py-8 flex justify-center items-center w-[100%]  mainStudent">
-            <div className="max-w-6xl mx-auto px-4 w-[100%] studentContainer">
+          
+          <div className="flex-1 bg-gray-200 py-8 px-4 md:px-6 lg:px-8 overflow-auto">
+            <div className="max-w-6xl mx-auto w-full">
               <form action="" onSubmit={handleSubmit}>
                 <div className="bg-white rounded-xl shadow-sm overflow-hidden p-1.5">
                   <div className="p-6 border-b">
@@ -896,7 +898,7 @@ const StudentProfile = () => {
                               <input
                                 type="checkbox"
                                 className="mr-2 w-6 h-6 "
-                                checked={isFresher}
+                                checked={isChecked}
                                 onChange={handleCheckbox}
                               />
                               <span className="text-lg font-medium checkboxText text-gray-700">
@@ -905,7 +907,8 @@ const StudentProfile = () => {
                             </label>
                           </div>
                         </div>
-
+                      {!isChecked && (
+                        
                         <div className="p-8 border-b personaldiv">
                           <h3 className="text-lg font-semibold flex items-center gap-2 mb-4 personaltitle">
                             Current company details{" "}
@@ -924,7 +927,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-2"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
 
@@ -940,7 +943,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-2"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
                           </div>
@@ -957,7 +960,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-2"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
                             <div className="w-[48%]">
@@ -972,7 +975,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-5 h-[47px]"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
                           </div>
@@ -990,7 +993,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-5 h-[47px]"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
                             <div className="w-[48%]">
@@ -1005,7 +1008,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-5 h-[47px]"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
                           </div>
@@ -1022,7 +1025,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className="profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-5 h-[47px]"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
 
@@ -1038,7 +1041,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-5 h-[47px]"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
                           </div>
@@ -1055,7 +1058,7 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-5 h-[47px]"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
 
@@ -1071,14 +1074,14 @@ const StudentProfile = () => {
                                 onChange={handleChange}
                                 className=" profileinput rounded-lg block w-full text-sm font-medium border-gray-300 border-[1px] p-3 text-gray-700 mb-5 h-[47px]"
                                 required
-                                disabled={isFresher}
+                                // disabled={isFresher}
                               />
                             </div>
                           </div>
-                        </div>
+                        
 
                         {jobDataPost.job_details.map((job, index) => (
-                          <div className="p-6 border-b personaldiv" key={index}>
+                          <div className="p-6  personaldiv1" key={index}>
                             <h3 className="text-lg font-semibold flex items-center gap-2 mb-4 personaltitle">
                               Previous Company
                             </h3>
@@ -1093,7 +1096,7 @@ const StudentProfile = () => {
                                   placeholder="e.g Frontend Developer"
                                   name="job_title"
                                   value={job.job_title}
-                                  disabled={isFresher}
+                                  // disabled={isFresher}
                                   onChange={(e) =>
                                     handleNestedChange(e, index, "job_details")
                                   }
@@ -1110,7 +1113,7 @@ const StudentProfile = () => {
                                   placeholder="Company name"
                                   name="company_name"
                                   value={job.company_name}
-                                  disabled={isFresher}
+                                  // disabled={isFresher}
                                   onChange={(e) =>
                                     handleNestedChange(e, index, "job_details")
                                   }
@@ -1128,7 +1131,7 @@ const StudentProfile = () => {
                                   placeholder="e.g HTML,CSS.."
                                   name="job_skills"
                                   value={job.job_skills}
-                                  disabled={isFresher}
+                                  // disabled={isFresher}
                                   onChange={(e) =>
                                     handleNestedChange(e, index, "job_details")
                                   }
@@ -1144,7 +1147,7 @@ const StudentProfile = () => {
                                   placeholder="summary"
                                   name="job_summary"
                                   value={job.job_summary}
-                                  disabled={isFresher}
+                                  // disabled={isFresher}
                                   onChange={(e) =>
                                     handleNestedChange(e, index, "job_details")
                                   }
@@ -1163,7 +1166,7 @@ const StudentProfile = () => {
                                   placeholder="City"
                                   name="job_duration_from"
                                   value={job.job_duration_from}
-                                  disabled={isFresher}
+                                  // disabled={isFresher}
                                   onChange={(e) =>
                                     handleNestedChange(e, index, "job_details")
                                   }
@@ -1179,7 +1182,7 @@ const StudentProfile = () => {
                                   placeholder="City"
                                   name="job_duration_to"
                                   value={job.job_duration_to}
-                                  disabled={isFresher}
+                                  // disabled={isFresher}
                                   onChange={(e) =>
                                     handleNestedChange(e, index, "job_details")
                                   }
@@ -1201,12 +1204,12 @@ const StudentProfile = () => {
                                 <button
                                   type="button"
                                   className={`${
-                                    isFresher
+                                    isChecked
                                       ? "hover:bg-green-600 hover:shadow"
                                       : "hover:bg-green-500 hover:shadow-lg"
                                   } text-white border-2 bg-green-600 duration-150 transition-all px-4 py-1 rounded-lg addmore`}
                                   onClick={addJobField}
-                                  disabled={isFresher}
+                                  // disabled={isFresher}
                                 >
                                   Add More
                                 </button>
@@ -1214,7 +1217,8 @@ const StudentProfile = () => {
                             </div>
                           </div>
                         ))}
-
+                        </div>
+                      )}
                         {jobDataPost.educations.map((education, index) => (
                           <div className="p-6 border-b personaldiv" key={index}>
                             <h3 className="text-lg font-semibold flex items-center gap-2 mb-4 personaltitle">
@@ -1310,7 +1314,7 @@ const StudentProfile = () => {
                             </div>
                           </div>
                         ))}
-
+                      {/* )} */}
                         {jobDataPost.projects.map((project, index) => (
                           <div className="p-6 border-b personaldiv" key={index}>
                             <h3 className="text-lg font-semibold flex items-center gap-2 mb-4 personaltitle">

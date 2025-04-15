@@ -43,11 +43,11 @@ const ResumeDetailsCard = () => {
 
         console.log("Resume Details:", response.data);
         setResume(response.data);
-        
+
       } catch (error) {
         console.error("Error fetching resume details:", error);
-       } finally {
-         setLoading(false);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -65,84 +65,84 @@ const ResumeDetailsCard = () => {
   }
 
   return (
-    <div className="flex w-full md1">
+    <div className="flex flex-col md:flex-row w-full px-4 md:px-10 py-5">
       {/* <div>
         
         <Sidebar />
       </div> */}
 
       <div className='resumed '>
-      <button className='flex rounded-lg bg-blue-600 hover:bg-blue-800 cursor-pointer text-white abcd '
-        onClick={() => navigate(-1)} 
-      > <IoArrowBackOutline  className='text-xl relative right-1  md' />back</button>
+        <button className='flex items-center w-fit rounded-lg bg-blue-600 hover:bg-blue-800 cursor-pointer text-white abcd'
+          onClick={() => navigate(-1)}
+        > <IoArrowBackOutline className='text-xl relative right-1  md' />back</button>
 
         {/* 1st row */}
-        <div className='flex justify-between md2'>
+        <div className='flex flex-col md:flex-row justify-between gap-2 md:gap-0 md2'>
 
           <div>
-            <p className='font-bold  text-3xl'>Resume Analysis Report</p>
+            <p className='font-bold md:text-3xl text-2xl'>Resume Analysis Report</p>
           </div>
 
           <div>
 
-            <p className={`text-green-700 bg-green-200 rounded-3xl text-xl resumeselect ${selectedResume.resume_status === "Resume Selected" ? "text-green-700 bg-green-200"
+            <p className={`text-sm md:text-xl rounded-3xl w-fit mt-2 md:mt-0 resumeselect ${selectedResume.resume_status === "Resume Selected" ? "text-green-700 bg-green-200"
               : "text-red-700 bg-red-200"}`}>{selectedResume.resume_status.toUpperCase()}</p>
           </div>
         </div>
         {/* 2nd row */}
         <div>
-
-          <table className="w-[80%]  table table-auto text-xl ">
-            <tbody className="w-full">
-              <tr className="grid grid-cols-2 gap-4">
-                <td className="flex items-center gap-2"><IoPerson className='text-gray-500'/> {selectedResume?.candidate_info?.name || "N/A"}</td>
-                <td className="flex items-center gap-2"><IoBagRemoveSharp className='text-gray-500'/>{selectedResume?.job_title || "N/A"}</td>
-              </tr>
-              <tr className="grid grid-cols-2 gap-4">
-                <td className="flex items-center gap-2"><MdMailOutline className='text-gray-500'/>{selectedResume?.candidate_info?.email || "N/A"}</td>
-                <td className="flex items-center gap-2"><GoClock className='text-gray-500'/>{selectedResume?.uploaded_at || "N/A"}</td>
-              </tr>
-              <tr className="grid grid-cols-2 gap-4">
-                <td className="flex items-center gap-2"><FaPhoneAlt className='text-gray-500'/> {selectedResume?.candidate_info?.phone || "N/A"}</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-
+          <div className='overflow-x-auto'>
+            <table className="min-w-full text-sm md:text-base table-auto ">
+              <tbody className="w-full">
+                <tr className="grid grid-cols-2 gap-4">
+                  <td className="flex items-center gap-2"><IoPerson className='text-gray-500' /> {selectedResume?.candidate_info?.name || "N/A"}</td>
+                  <td className="flex items-center gap-2"><IoBagRemoveSharp className='text-gray-500' />{selectedResume?.job_title || "N/A"}</td>
+                </tr>
+                <tr className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <td className="flex items-center gap-2"><MdMailOutline className='text-gray-500' />{selectedResume?.candidate_info?.email || "N/A"}</td>
+                  <td className="flex items-center gap-2"><GoClock className='text-gray-500' />{selectedResume?.uploaded_at || "N/A"}</td>
+                </tr>
+                <tr className="grid grid-cols-2 gap-4">
+                  <td className="flex items-center gap-2"><FaPhoneAlt className='text-gray-500' /> {selectedResume?.candidate_info?.phone || "N/A"}</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         {/* 3rd row */}
-        <div className='flex items-center justify-between gap-5  '>
-          <div className='flex data bg-[#EFF6FF]  items-center justify-between '>
-            <div className=' text-2xl'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6'>
+        <div className='flex data bg-[#EFF6FF]  items-center justify-between '>
+            <div className=' md:text-2xl text-xl'>
               <p>Overall Score</p>
-              <p className='text-3xl font-bold text-[#2563EB]'>{selectedResume?.overall_score || "N/A"}</p>
+              <p className='md:text-3xl font-bold text-[#2563EB]'>{selectedResume?.overall_score || "N/A"}</p>
             </div>
 
           </div>
           <div className='flex data bg-[#ECFDF5] items-center justify-between gap-5 '>
-            <div className=' text-2xl'>
+            <div className=' md:text-2xl text-xl'>
               <p>Relevance</p>
-              <p className='text-3xl font-bold text-[#059669]'>{selectedResume?.relevance || "N/A"}/10</p>
+              <p className='md:text-3xl font-bold text-[#059669]'>{selectedResume?.relevance || "N/A"}/10</p>
             </div>
 
           </div>
           <div className='flex data bg-[#FFFBEB] items-center justify-between gap-5 '>
-            <div className=' text-2xl'>
+            <div className=' md:text-2xl text-xl'>
               <p>Skills Fit</p>
-              <p className='text-3xl font-bold text-[#D97706]'>{selectedResume?.skills_fit || "N/A"}/10</p>
+              <p className='md:text-3xl font-bold text-[#D97706]'>{selectedResume?.skills_fit || "N/A"}/10</p>
             </div>
 
           </div>
           <div className='flex data bg-[#F5F3FF] items-center justify-between gap-5'>
-            <div className=' text-2xl'>
+            <div className=' md:text-2xl text-xl'>
               <p>Cultural Fit</p>
-              <p className='text-3xl font-bold text-[#7C3AED]'>{selectedResume?.cultural_fit || "N/A"}/10</p>
+              <p className='md:text-3xl font-bold text-[#7C3AED]'>{selectedResume?.cultural_fit || "N/A"}/10</p>
             </div>
           </div>
           <div className='flex data bg-[#F5F3FF] items-center justify-between gap-5'>
-            <div className=' text-2xl'>
+            <div className=' md:text-2xl text-xl'>
               <p>Experience Match</p>
-              <p className='text-3xl font-bold text-[#7C3]'>{selectedResume?.experience_match || "N/A"}/10</p>
+              <p className='md:text-3xl font-bold text-[#7C3]'>{selectedResume?.experience_match || "N/A"}/10</p>
             </div>
           </div>
         </div>

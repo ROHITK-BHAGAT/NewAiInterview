@@ -406,7 +406,7 @@ const Interview_Demo = ({
                   Thank you for completing the interview. Your responses have been recorded.
                 </p>
                 <button
-                  onClick={() => window.location.href = '/'}
+                  onClick={() => window.location.href = '/ai_hr'}
                   className="w-[200px] bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors goto cursor-pointer"
                 >
                   Go to Home page

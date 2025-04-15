@@ -672,13 +672,18 @@
 
 
 /* dashboard */
+
+/* responsive */
 .dash{
+  margin-left: 0px;
+}
+/* .dash{
   margin-left: 30px;
   margin-top: 30px;
 }
 .dash1{
   margin: 10px 30px;
-}
+} */
 .dash2{
   margin-top: 10px;
 }
@@ -793,6 +798,7 @@
 
 .logout{
   margin: 10px 30px;
+  /* margin-left: -30px; */
   margin-top: 110px;
   padding: 9px 13px;
 }
@@ -917,6 +923,9 @@
 }
 .personaldiv{
   margin: 20px 20px;
+}
+.personaldiv1{
+  margin: 20px 10px;
 }
 /* .personaldiv1{
   background-color: red;
@@ -1135,4 +1144,5 @@
   padding: 15px 25px;
 }
 
+/* login */
 

@@ -14,11 +14,13 @@ import { FaFileAlt } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { TbReportAnalytics } from "react-icons/tb";
 import { useLogin } from "../auth/LoginContext";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FiX } from "react-icons/fi";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
     JSON.parse(localStorage.getItem("sidebarCollapsed")) || false);
-
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { logout } = useLogin();
 
   // Update localStorage when state changes
@@ -36,13 +38,35 @@ const Sidebar = () => {
 
   return (
     <>
+    {/* responsive */}
+      {/* <div
+        className={`sticky top-0 bottom-0 left-0 flex flex-col h-screen shadow-2xl transition-all duration-300 ${isCollapsed ? "w-20" : "w-80"}`}
+      > */}
+
+      {/* Hamburger Button - Mobile Only */}
+      <button
+        className="md:hidden absolute top-7 left-4 z-50 bg-white p-2 rounded shadow"
+        onClick={() => setIsMobileOpen(true)}
+      >
+        <GiHamburgerMenu size={24} />
+      </button>
+
+      {/* Overlay Sidebar on Mobile */}
+      {isMobileOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 z-40" onClick={() => setIsMobileOpen(false)}></div>
+      )}
+
       <div
-        className={`sticky top-0 bottom-0 left-0 flex flex-col h-screen shadow transition-all duration-300 ${isCollapsed ? "w-20" : "w-80"}`}
+        className={`fixed md:sticky h-screen top-0 left-0 shadow bg-white transition-all duration-300 z-50
+          ${isMobileOpen ? "translate-x-0 w-full" : "md:translate-x-0 -translate-x-full"}
+          ${isCollapsed ? "w-20" : "w-80"}
+            md:flex flex-col justify-between
+        `}
       >
         {/* Toggle Button */}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className={`absolute top-5 transition-all duration-300 border-gray-300 rounded-lg shadow-md bg-white border-1 cursor-pointer ${isCollapsed ? "-right-5" : "-right-3"}`}
+          className={`absolute top-5 transition-all duration-300 border-gray-300 rounded-lg shadow-md bg-white border-1 cursor-pointer hidden md:block ${isCollapsed ? "-right-5" : "-right-3"}`}
         >
           {isCollapsed ? (
             <IoIosArrowForward size={28} className="text-black-300" />
@@ -53,6 +77,14 @@ const Sidebar = () => {
 
         {/* Sidebar Content - Main Content */}
         <div className="flex flex-col flex-grow">
+
+          {/* responsive */}
+        {isMobileOpen && <button
+            className="md:hidden fixed top-7 right-4 z-50 bg-white p-2 rounded shadow"
+            onClick={() => setIsMobileOpen(false)}
+          >
+            <FiX size={24} />
+          </button>}
           <div
             className={`flex flex-col gap-2 transition-all duration-300 ${isCollapsed ? "items-center" : "items-start pl-4"}`}
           >
@@ -61,7 +93,7 @@ const Sidebar = () => {
                 <img
                   src={logoimage}
                   alt="Collapsed Logo"
-                  className="w-[50px] h-[50px] mt-5"
+                  className="w-[50px] h-[50px] smallicon"
                 />
               ) : (
                 <img
@@ -71,9 +103,9 @@ const Sidebar = () => {
                 />
               )}
             </div>
-            <hr
+            {/* <hr
               className={`w-[80%] flex items-center bg-gray-300 border-none h-[2.0px] justify-center sidebarhrline ${isCollapsed ? "sidebarsmalllogo" : ""}`}
-            />
+            /> */}
             <nav className="w-full margin sidenav text-lg">
               <ul className="flex flex-col gap-4">
                 <li>
@@ -83,7 +115,7 @@ const Sidebar = () => {
                       `${isActive
                         ? isCollapsed
                           ? "collapsed-active"
-                          : "activeside"
+                          : " candidateportal activeside "
                         : ""
                       } 
                       flex items-center gap-2 sidebarbtn ${isCollapsed
@@ -102,7 +134,7 @@ const Sidebar = () => {
                     className={({ isActive }) => `${isActive
                       ? isCollapsed
                         ? "collapsed-active"
-                        : "activeside"
+                        : "activeside candidateportal"
                       : ""
                       } 
                       flex items-center gap-2 sidebarbtn ${isCollapsed
@@ -117,7 +149,7 @@ const Sidebar = () => {
                 <li>
                   <NavLink
                     to="/candidatescreening"
-                    className={({ isActive }) => `${isActive ? (isCollapsed ? "collapsed-active" : "activeside") : ""} flex items-center gap-2 sidebarbtn ${isCollapsed ? "sidebarbtnsm justify-center" : "w-full"}`}
+                    className={({ isActive }) => `${isActive ? (isCollapsed ? "collapsed-active" : "activeside candidateportal") : ""} flex items-center gap-2 sidebarbtn ${isCollapsed ? "sidebarbtnsm justify-center" : "w-full"}`}
                   >
                     <BsPeopleFill size={24} className="text-gray-700"/>
                     {!isCollapsed && <span className="whitespace-nowrap">Candidate Screening</span>}
@@ -129,7 +161,7 @@ const Sidebar = () => {
                     className={({ isActive }) => `${isActive
                       ? isCollapsed
                         ? "collapsed-active"
-                        : "activeside"
+                        : "activeside candidateportal"
                       : ""
                       } 
                       flex items-center gap-2 sidebarbtn ${isCollapsed
@@ -147,7 +179,7 @@ const Sidebar = () => {
                     className={({ isActive }) => `${isActive
                       ? isCollapsed
                         ? "collapsed-active"
-                        : "activeside"
+                        : "activeside candidateportal"
                       : ""
                       } 
                       flex items-center gap-2 sidebarbtn ${isCollapsed
@@ -165,7 +197,7 @@ const Sidebar = () => {
                     className={({ isActive }) => `${isActive
                       ? isCollapsed
                         ? "collapsed-active"
-                        : "activeside"
+                        : "activeside candidateportal"
                       : ""
                       } 
                       flex items-center gap-2 sidebarbtn ${isCollapsed
@@ -184,7 +216,7 @@ const Sidebar = () => {
 
           <div className={`sidebarlogout mt-auto mb-4 fexl ${isCollapsed ? " mx-auto w-[60%] " : "ml-4"}`}>
             <div
-              className="flex  justify-center items-center gap-2 cursor-pointer text-xl    rounded-lg w-full text-red-500 logout  font-medium"
+              className="flex   items-center gap-2 cursor-pointer text-xl    rounded-lg w-full text-red-500 logout logcandidate  font-medium"
               onClick={handlelogut}
             
             >

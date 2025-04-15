@@ -100,7 +100,7 @@ const StdResumeUploadData = () => {
     }
     setIsDisabled(true);
     // Ensure a file is selected
-   
+
 
     // Prepare form data for upload
     const formData = new FormData();
@@ -253,7 +253,12 @@ const StdResumeUploadData = () => {
                       </td>
                       <td className="flex items-center gap-2">
                         <GoClock className="text-gray-500" />
-                        {resume?.uploaded_at || "N/A"}
+                        {resume?.uploaded_at
+                          ? new Date(resume.uploaded_at).toLocaleString('en-GB', {
+                            dateStyle: 'medium',
+                            timeStyle: 'medium', // includes seconds
+                          })
+                          : "N/A"}
                       </td>
                     </tr>
                     <tr className="grid grid-cols-2 gap-4">

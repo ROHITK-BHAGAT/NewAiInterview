@@ -8,14 +8,24 @@
 
 
 /* dashboard */
-.dash{
+
+/* responsive */
+
+/* .dash{
   margin-left: 0px;
   margin-top: 15px;
 }
 .dash1{
   margin-right: 10px;
   margin-top: 4px;
+} */
+
+.dash1{
+  margin-right: 10px;
+  margin-top: 0px;
 }
+
+
 .dash2{
   margin-top: 10px;
 }
@@ -103,9 +113,12 @@
 }
 
 /* Adjust margins based on sidebar state */
-.sidebar-expanded .dash {
+
+/* responsive */
+
+/* .sidebar-expanded .dash {
   margin-left: 30px;
-}
+} */
 
 .sidebar-collapsed .dash {
   margin-left: 15px;
@@ -161,4 +174,22 @@
   .data-cards-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+/* responsive */
+
+.welcome{
+  margin-left: 30px;
+}
+.pl{
+  margin-left: 15px;
+  margin-bottom: 50px;
+}
+}
+
+
+@media (min-width: 768px) {
+.dash{margin-top: 15px;}
+.sidebar-expanded .dash {
+margin-left: 30px;
+}
+
 }

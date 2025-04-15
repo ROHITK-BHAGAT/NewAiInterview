@@ -110,20 +110,40 @@ const ResumeAnalysis = () => {
   };
 
   return (
-    <div className="flex w-full">
-      <Sidebar />
-      <div className="flex-1 dash flex-col ml-84">
-        {/* Header */}
-        <div className="flex justify-between dash1">
-          <p className="text-3xl font-bold">HR Resume Analytics</p>
-          <div className="flex justify-center items-center gap-4 relative">
-            <div className="relative">
-              <div
-                className="w-[60px] h-[60px] cursor-pointer flex items-center justify-center"
-                onClick={toggleProfileCard}
-              >
-                <CgProfile color="hotpink" size={40} />
-              </div>
+
+    // responsive
+
+    // <div className="flex w-full">
+    //   <Sidebar />
+    //   <div className="flex-1 dash flex-col ml-84">
+    //     {/* Header */}
+    //     <div className="flex justify-between dash1">
+    //       <p className="text-3xl font-bold">HR Resume Analytics</p>
+    //       <div className="flex justify-center items-center gap-4 relative">
+    //         <div className="relative">
+    //           <div
+    //             className="w-[60px] h-[60px] cursor-pointer flex items-center justify-center"
+    //             onClick={toggleProfileCard}
+    //           >
+    //             <CgProfile color="hotpink" size={40} />
+    //           </div>
+
+
+    <div className="flex flex-col md:flex-row w-full">
+    <Sidebar />
+    <div className="flex-1 dash flex-col md:ml-84 ml-0">
+      {/* Header */}
+      <div className="flex justify-between dash1">
+        <p className="md:text-3xl text-xl font-bold ml">HR Resume Analytics</p>
+        <div className="flex justify-center items-center gap-4 relative">
+          <div className="relative">
+            <div
+              className="w-[60px] h-[60px] cursor-pointer flex items-center justify-center"
+              onClick={toggleProfileCard}
+            >
+              <CgProfile color="hotpink" size={40} className="absolute top-0 right-0 md:static"/>
+            </div>
+            {/* // */}
               {showProfileCard && (
                 <div className="absolute right-0 top-full mt-2 z-50">
                   <ProfileCard onClose={toggleProfileCard} />
@@ -134,7 +154,9 @@ const ResumeAnalysis = () => {
         </div>
 
         {/* Stats */}
-        <div className="flex items-center gap-5 dash1 mt-6">
+        {/* responsive */}
+
+        <div className="flex flex-col md:flex-row items-center gap-5 dash1 mt-6">
           {[
             {
               label: "Upload Resume",
@@ -154,7 +176,7 @@ const ResumeAnalysis = () => {
           ].map((stat, index) => (
             <div
               key={index}
-              className="flex data items-center justify-between gap-5 p-4 rounded-lg shadow border border-gray-100 w-1/3"
+              className="flex data items-center justify-between gap-5 p-4 rounded-lg shadow border border-gray-100 md:w-1/3 w-full"
             >
               <div>
                 <p className="text-xl text-gray-600">{stat.label}</p>
@@ -170,12 +192,12 @@ const ResumeAnalysis = () => {
           <p className="text-2xl font-bold ">Resume Statistics </p>
         </div>
          
-        <div className="flex justify-between items-center dash1 resumeSta gap-10 mt-10">
+        <div className="flex flex-col lg:flex-row justify-between items-center dash1 resumeSta gap-10 mt-10">
           {/* Left Box - Bar Chart */}
 
-          <div className="w-1/2 h-[560px] p-6 border rounded-lg shadow-md flex flex-col items-center padd">
+          <div className="w-1/2 h-[560px] p-6 border rounded-lg shadow-md md:flex flex-col items-center hidden padd">
             <p className="text-2xl font-bold"> Bar Chart</p>
-            <div className="flex items-end justify-evenly p-6 gap-10 padd">
+            <div className="flex items-end justify-evenly p-6 gap-25 padd">
               <div className="flex flex-col items-center">
                 <p className="text-2xl font-bold text-gray-700">
                   {totalUpload.total_uploaded || 0}
@@ -247,7 +269,7 @@ const ResumeAnalysis = () => {
         <h2 className="text-2xl font-bold my-10 paddingtop">
           Resume Analysis Report
         </h2>
-        <div className="flex justify-end gap-8 my-6 padd">
+        <div className="flex flex-col md:flex-row justify-end gap-4 md:gap-8 my-6 padd">
           <button
             onClick={() => fetchResumes("selected")}
             className={`py-2 px-6 rounded-lg resumebtn ${
@@ -271,18 +293,18 @@ const ResumeAnalysis = () => {
         </div>
 
         {/* Resumes Table */}
-        <div className="w-full p-6 bg-white rounded-lg padd1">
+        <div className="w-full p-6 bg-white rounded-lg padd1 overflow-x-auto">
           {loading ? (
             <p className="text-center text-gray-500">Loading resumes...</p>
           ) : (
-            <table className="w-full border-collapse resumeanatable">
+            <table className="w-full border-collapse resumeanatable min-w-[700px]">
               <thead className="margintop">
                 <tr className="text-left bg-gray-100 shadow-md">
                   <th className="p-4 text-gray-600 padd2">Name</th>
                   <th className="p-4 text-gray-600">Contact</th>
                   <th className="p-4 text-gray-600">Job Title</th>
                   <th className="p-4 text-gray-600">Status</th>
-                  <th className="p-4 text-gray-600">Uploaded At</th>
+                  <th className="p-4 text-gray-600 text-nowrap">Uploaded At</th>
                   <th className="p-4 text-gray-600">Action</th>
                 </tr>
               </thead>
@@ -307,7 +329,7 @@ const ResumeAnalysis = () => {
                       </td>
                       <td className="p-4">
                         <span
-                          className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          className={`px-3 py-1 rounded-full text-xs font-semibold text-nowrap ${
                             resume.resume_status === "resume selected"
                               ? "bg-green-100 text-green-600 padd"
                               : "bg-red-100 text-red-600 padd"
@@ -326,7 +348,7 @@ const ResumeAnalysis = () => {
                           onClick={() =>
                             navigate("/resumedetail", { state: { resume } })
                           }
-                          className="py-1 px-3 bg-blue-500 text-white rounded hover:bg-blue-700 cursor-pointer transition padd"
+                          className="py-1 px-3 bg-blue-500 text-white rounded hover:bg-blue-700 cursor-pointer transition text-nowrap padd"
                         >
                           Show Details
                         </button>

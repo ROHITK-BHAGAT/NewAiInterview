@@ -329,26 +329,50 @@ const JobPosting = () => {
   }, [PublishData, searchTerm]);
 
   return (
-    <div className="flex w-full">
-      <Sidebar />
-      <div className={`flex-1 dash flex-col ${isSidebarCollapsed ? "ml-20" : "ml-84"}`}>
-        {/* Header row with profile icon */}
-        <div className="flex justify-between dash1">
-          <div>
-            <p className="text-3xl font-bold">HR Job Portal</p>
-            <p className="text-gray-500 dash2 text-xl job1">
-              Manage and track all your job postings
-            </p>
-          </div>
-          <div className="flex justify-center items-center gap-4 relative">
-            <div className="relative">
-              <div 
-                className="w-[60px] h-[60px] cursor-pointer flex items-center justify-center"
-                onClick={toggleProfileCard}
-              >
-                <CgProfile color="hotpink" size={40} />
-              </div>
-              
+      // responsive
+
+
+    // <div className="flex w-full">
+    //   <Sidebar />
+    //   <div className={`flex-1 dash flex-col ${isSidebarCollapsed ? "ml-20" : "ml-84"}`}>
+    //     {/* Header row with profile icon */}
+    //     <div className="flex justify-between dash1">
+    //       <div>
+    //         <p className="text-3xl font-bold">HR Job Portal</p>
+    //         <p className="text-gray-500 dash2 text-xl job1">
+    //           Manage and track all your job postings
+    //         </p>
+    //       </div>
+    //       <div className="flex justify-center items-center gap-4 relative">
+    //         <div className="relative">
+    //           <div 
+    //             className="w-[60px] h-[60px] cursor-pointer flex items-center justify-center"
+    //             onClick={toggleProfileCard}
+    //           >
+    //             <CgProfile color="hotpink" size={40} />
+    //           </div>
+
+
+    <div className="flex md:w-full ">
+    <Sidebar />
+    <div className={`flex-1 dash flex-col overflow-x-hidden ${isSidebarCollapsed ? "ml-20" : "ml-84"}`}>
+      {/* Header row with profile icon */}
+      <div className="flex justify-between items-center dash1">
+        <div className="hr">
+          <p className="md:text-3xl text-xl font-bold">HR Job Portal</p>
+          <p className="text-gray-500 dash2 md:text-xl job1">
+            Manage and track all your job postings
+          </p>
+        </div>
+        <div className="flex justify-center items-center gap-4 relative">
+          <div className="relative">
+            <div 
+              className="w-[60px] h-[60px] cursor-pointer flex items-center justify-center"
+              onClick={toggleProfileCard}
+            >
+              <CgProfile color="hotpink" size={40} className="pl absolute top-0 right-0 md:static"/>
+            </div>
+              {/* // */}
               {showProfileCard && (
                 <div className="absolute right-0 top-full mt-2 z-50">
                   <ProfileCard onClose={toggleProfileCard} />
@@ -396,7 +420,7 @@ const JobPosting = () => {
                     {/* Job Title and Department */}
                     <div className="flex items-center justify-between gap-8 mb-6">
                       <div className="flex flex-col w-1/2">
-                        <label className="text-xl mb-2">
+                        <label className="md:text-xl mb-2">
                           Job Title<span className="text-red-500">*</span>
                         </label>
                         <input
@@ -406,11 +430,11 @@ const JobPosting = () => {
                           onChange={handleInputChange}
                           placeholder="Enter job title"
                           required
-                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 placeholder:text-lg"
+                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 md:placeholder:text-lg placeholder:text-sm"
                         />
                       </div>
                       <div className="flex flex-col w-1/2">
-                        <label className="text-xl mb-2">
+                        <label className="md:text-xl mb-2">
                           Department<span className="text-red-500">*</span>
                         </label>
                         <input
@@ -420,7 +444,7 @@ const JobPosting = () => {
                           onChange={handleInputChange}
                           placeholder="Enter department"
                           required
-                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 placeholder:text-lg"
+                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 md:placeholder:text-lg placeholder:text-sm"
                         />
                       </div>
                     </div>
@@ -428,7 +452,7 @@ const JobPosting = () => {
                     {/* Company Name and Employment Type */}
                     <div className="flex items-center justify-between gap-8 mb-6">
                       <div className="flex flex-col w-1/2">
-                        <label className="text-xl mb-2">
+                        <label className="md:text-xl mb-2">
                           Company Name<span className="text-red-500">*</span>
                         </label>
                         <input
@@ -438,11 +462,11 @@ const JobPosting = () => {
                           onChange={handleInputChange}
                           placeholder="Enter company name"
                           required
-                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 placeholder:text-lg"
+                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 md:placeholder:text-lg placeholder:text-sm"
                         />
                       </div>
                       <div className="flex flex-col w-1/2">
-                        <label className="text-xl mb-2">
+                        <label className="md:text-xl mb-2">
                           Employment Type<span className="text-red-500">*</span>
                         </label>
                         <select
@@ -463,7 +487,7 @@ const JobPosting = () => {
                     {/* Location and Job Type */}
                     <div className="flex items-center justify-between gap-8 mb-6">
                       <div className="flex flex-col w-1/2">
-                        <label className="text-xl mb-2">
+                        <label className="md:text-xl mb-2">
                           Location<span className="text-red-500">*</span>
                         </label>
                         <input
@@ -473,11 +497,11 @@ const JobPosting = () => {
                           onChange={handleInputChange}
                           placeholder="Enter location"
                           required
-                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 placeholder:text-lg"
+                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 md:placeholder:text-lg placeholder:text-sm"
                         />
                       </div>
                       <div className="flex flex-col w-1/2">
-                        <label className="text-xl mb-2">
+                        <label className="md:text-xl mb-2">
                           Job Type<span className="text-red-500">*</span>
                         </label>
                         <select
@@ -499,7 +523,7 @@ const JobPosting = () => {
                     {/* Experience and Salary */}
                     <div className="flex items-center justify-between gap-8 mb-6">
                       <div className="flex flex-col w-1/2">
-                        <label className="text-xl mb-2">
+                        <label className="md:text-xl mb-2">
                           Experience Required<span className="text-red-500">*</span>
                         </label>
                         <input
@@ -509,11 +533,11 @@ const JobPosting = () => {
                           onChange={handleInputChange}
                           placeholder="e.g, 2-3 year"
                           required
-                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 placeholder:text-lg"
+                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 md:placeholder:text-lg placeholder:text-sm"
                         />
                       </div>
                       <div className="flex flex-col w-1/2">
-                        <label className="text-xl mb-2">
+                        <label className="md:text-xl mb-2">
                           Salary Range<span className="text-red-500">*</span>
                         </label>
                         <input
@@ -523,14 +547,14 @@ const JobPosting = () => {
                           onChange={handleInputChange}
                           placeholder="e.g. $50,000-70,000"
                           required
-                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 placeholder:text-lg"
+                          className="shift-placeholder writeText w-full h-[60px] p-2 border border-gray-300 rounded-md placeholder-gray-400 md:placeholder:text-lg placeholder:text-sm"
                         />
                       </div>
                     </div>
 
                     {/* Job Description */}
                     <div className="flex flex-col mb-6">
-                      <label className="text-xl mb-2">
+                      <label className="md:text-xl mb-2">
                         Job Description<span className="text-red-500">*</span>
                       </label>
                       <textarea
@@ -545,7 +569,7 @@ const JobPosting = () => {
 
                     {/* Requirements */}
                     <div className="flex flex-col mb-6">
-                      <label className="text-xl mb-2">
+                      <label className="md:text-xl mb-2">
                         Requirements<span className="text-red-500">*</span>
                       </label>
                       <textarea
@@ -560,7 +584,7 @@ const JobPosting = () => {
 
                     {/* Responsibilities */}
                     <div className="flex flex-col mb-6">
-                      <label className="text-xl mb-2">
+                      <label className="md:text-xl mb-2">
                         Responsibilities<span className="text-red-500">*</span>
                       </label>
                       <textarea
@@ -575,7 +599,7 @@ const JobPosting = () => {
 
                     {/* Application Deadline */}
                     <div className="flex flex-col mb-6">
-                      <label className="text-xl mb-2">
+                      <label className="md:text-xl mb-2">
                         Application Deadline<span className="text-red-500">*</span>
                       </label>
                       <input

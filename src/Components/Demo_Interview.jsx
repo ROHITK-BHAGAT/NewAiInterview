@@ -3,8 +3,9 @@ import axios from "../helper/Axios";
 import { Camera } from 'lucide-react';
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
+import './Candidate_Interview.css'
 
-const Demo_Interview = ({
+const Candidate_Interview = ({
   initialQuestion,
   onAnswerComplete
 }) => {
@@ -64,18 +65,23 @@ const Demo_Interview = ({
 
   const fetchQuestionsAndStart = async (email) => {
     try {
-      const response = await axios.get(`/api/candidate_questions-by-email/${email}`);
+      const token = localStorage.getItem('token'); 
+      const response = await axios.get(`/api/candidate_questions-by-email/${email}`,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       if (response.data && response.data.length > 0) {
         const questionData = response.data[0];
         setQuestions(questionData);
-  
+
         const firstQuestion = {
           id: 1,
           text: questionData["Qustion1"],
           totalQuestions: Object.keys(questionData).length - 1,
           currentQuestion: 1,
         };
-        
+
         setQuestion(firstQuestion); // Set question first
         setCandidateEmail(email);
         await startCamera();
@@ -85,25 +91,19 @@ const Demo_Interview = ({
       setLoading(false);
     } catch (err) {
       // console.log(err.response.data);
-      Swal.fire({
-        // title: 'Analysis Failed',
-        text: `${err?.response?.data?.detail}`,
-
-        icon: 'error',
-      });
       setApiError("Failed to fetch questions. Please try again.");
       setLoading(false);
     }
   };
-  
+
 
 
 
 
   useEffect(() => {
-   Swal.fire({
-         title: 'Demo Interview',
-         html: `
+    Swal.fire({
+      title: 'Demo Interview',
+      html: `
            <div style="text-align: left; margin-top: 10px;">
            
               <div style="margin-top: 20px; ">
@@ -140,49 +140,50 @@ const Demo_Interview = ({
              </div>
            </div>
          `,
-         showCancelButton: true,
-         confirmButtonText: 'Submit',
-         cancelButtonText: 'Cancel',
-         confirmButtonColor: '#3498db',
-         cancelButtonColor: '#6c757d',
-         width: '600px',
-         focusConfirm: false,
-         reverseButtons: true, // Places cancel button on left
-         preConfirm: () => {
-           const email = document.getElementById('email').value;
-           // const jobTitle = document.getElementById('jobTitle').value;
-           const resume = document.getElementById('resumeUpload').files[0];
-     
-           if (!email || !resume) {
-             Swal.showValidationMessage('Both email and resume are required');
-             return false;
-           }
-     
-           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-             Swal.showValidationMessage('Please enter a valid email address');
-             return false;
-           }
-     
-           return { email,  resume };
-         },
-         didOpen: () => {
-           // File selection handler
-           document.getElementById('resumeUpload').addEventListener('change', (e) => {
-             const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
-             document.getElementById('fileName').textContent = fileName;
-           });
-         }
-       }).then((result) => {
+      showCancelButton: true,
+      confirmButtonText: 'Submit',
+      cancelButtonText: 'Cancel',
+      confirmButtonColor: '#3498db',
+      cancelButtonColor: '#6c757d',
+      width: '600px',
+      focusConfirm: false,
+      reverseButtons: true, // Places cancel button on left
+      preConfirm: () => {
+        const email = document.getElementById('email').value;
+        // const jobTitle = document.getElementById('jobTitle').value;
+        const resume = document.getElementById('resumeUpload').files[0];
+
+        if (!email || !resume) {
+          Swal.showValidationMessage('Both email and resume are required');
+          return false;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          Swal.showValidationMessage('Please enter a valid email address');
+          return false;
+        }
+
+        return { email, resume };
+      },
+      didOpen: () => {
+        // File selection handler
+        document.getElementById('resumeUpload').addEventListener('change', (e) => {
+          const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+          document.getElementById('fileName').textContent = fileName;
+        });
+      }
+    }).then((result) => {
       if (result.isConfirmed && result.value) {
         const { email, resume } = result.value;
         setResumeFile(resume);
         fetchQuestionsAndStart(email);
       }
-      else if(result.dismiss === Swal.DismissReason.cancel){
-        navigate("/StudentProfile");
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+      // Go back when cancel is clicked
+      navigate(-1);
       }
     });
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     let timer;
@@ -252,33 +253,36 @@ const Demo_Interview = ({
 
     try {
       setIsAnalyzing(true);
+      const token = localStorage.getItem("token");
       const response = await axios.post('/api/candidaate/analyze/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
         },
       });
+///
+      if (response.data.status === 'success') {
+        Swal.fire({
+          title: 'Analysis Complete!',
+          text: 'Your interview has been analyzed successfully and sent to HR for further processing.',
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonText: 'OK',
+          cancelButtonText: 'Stay',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/");
+          }
+        });
+      }
 
-      // if (response.data.status === 'success') {
-      //   Swal.fire({
-      //     title: 'Analysis Complete!',
-      //     text: 'Your interview has been analyzed successfully and sent to HR for further processing.',
-      //     icon: 'success',
-      //     showCancelButton: true,
-      //     confirmButtonText: 'OK',
-      //     cancelButtonText: 'Stay',
-      //   }).then((result) => {
-      //     if (result.isConfirmed) {
-      //       navigate("/");
-      //     }
-      //   });
-      // }
+      //
 
     } catch (error) {
-      console.log('Analysis error:', error);
+      console.error('Analysis error:', error);
       Swal.fire({
-        // title: 'Analysis Failed',
-        text: `${error?.response?.data?.detail}`,
-
+        title: 'Analysis Failed',
+        text: 'There was an error analyzing your interview. Please contact support.',
         icon: 'error',
       });
     } finally {
@@ -364,11 +368,12 @@ const Demo_Interview = ({
   if (loading) {
     return (
       <div className="fixed inset-0 bg-white/80 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+        <div className="flex flex-col items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
           <p className="text-gray-600">Loading interview...</p>
         </div>
       </div>
+
     );
   }
 
@@ -444,12 +449,12 @@ const Demo_Interview = ({
           </div>
         </div> */}
 
-        <div className="relative overflow-hidden rounded-lg   shadow-sm h-[700px] camera-border">
-          <img
+        <div className="relative overflow-hidden rounded-lg   shadow-sm h-[680px] camera-border">
+          {/* <img
             src="./AI-Video-Interviews.jpg"
             alt="AI Interviewer"
             className="`w-full  object-cover absolute h-[140px] bg-black border-3 border-white rounded-2xl sidecamera"
-          />
+          /> */}
           <video
             ref={videoRef}
             autoPlay
@@ -489,9 +494,9 @@ const Demo_Interview = ({
       <div className="bg-white question1 mt-4 p-4 rounded-lg border border-gray-200 shadow-sm ready1 ">
         {/* Start Interview Section */}
         {!hasStarted ? (
-          <div className='flex my-0 mx-auto flex-col items-center gap-4 '>
+          <div className='flex my-0 mx-auto flex-col items-center gap-4 ready2 '>
             <button
-              className=" ready px-6 py-2 text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm transition duration-300 shadow-md transform hover:scale-105 cursor-pointer"
+              className=" ready px-6 py-2 text-white  hover:to-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm transition duration-300 shadow-md transform hover:scale-105 cursor-pointer"
               onClick={() => {
                 Swal.fire({
                   title: 'Are you ready to start the interview?',
@@ -530,7 +535,7 @@ const Demo_Interview = ({
               <h2 className="text-lg font-semibold">
                 Question {question.currentQuestion} of {question.totalQuestions}
               </h2>
-              
+
               <div className="flex flex-col">
                 {/* Repeat Question Button */}
                 <button
@@ -552,12 +557,12 @@ const Demo_Interview = ({
                 <button
                   className={`px-6 py-2 text-white font-medium rounded-lg text-sm transition duration-300 shadow-md transform cursor-pointer next ${isSpeaking
                     ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 focus:ring-4 focus:ring-blue-300 hover:scale-105'
+                    : ' bg-blue-400 hover:from-purple-600 hover:to-blue-500 focus:ring-4 focus:ring-blue-300 hover:scale-105'
                     }`}
                   onClick={handleNextQuestion}
                   disabled={isSpeaking}
                 >
-                  Next
+                 {question.currentQuestion === question.totalQuestions ? 'Submit' : 'Next'}
                 </button>
               </div>
             </div>
@@ -570,4 +575,4 @@ const Demo_Interview = ({
   );
 };
 
-export default Demo_Interview;
+export default Candidate_Interview;

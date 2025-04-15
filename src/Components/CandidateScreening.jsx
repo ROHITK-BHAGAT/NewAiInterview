@@ -159,17 +159,31 @@ const CandidateScreening = () => {
   };
 
   return (
-    <div className="candidate-screening-container">
-      <Sidebar />
+    // responsive
+
+    // <div className="candidate-screening-container">
+    //   <Sidebar />
       
-      <div className={`main-content ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
-        <div className="header-section">
-          <div>
-            <h1>Candidate Screening</h1>
-            <p className="subtitle">Upload multiple candidate resumes</p>
-          </div>
+    //   <div className={`main-content ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
+    //     <div className="header-section">
+    //       <div>
+    //         <h1>Candidate Screening</h1>
+    //         <p className="subtitle">Upload multiple candidate resumes</p>
+    //       </div>
           
-          <div className="relative">
+    //       <div className="relative">
+
+    <div className="candidate-screening-container ">
+    <Sidebar />
+    
+    <div className={`main-content dash1 ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
+      <div className="header-section b ">
+        <div className="hr mt10">
+          <p className="md:text-3xl text-xl font-bold">Candidate Screening</p>
+          <p className="subtitle">Upload multiple candidate resumes</p>
+        </div>
+        
+        <div className="md:relative md:top-0 md:right-0 absolute top-5 right-5">
             <button 
               className="profile-icon-container"
               onClick={toggleProfileCard}
